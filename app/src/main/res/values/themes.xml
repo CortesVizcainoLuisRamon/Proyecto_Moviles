@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.ActivaESCOM" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    </style>
+
+    <style name="Theme.ActivaESCOM" parent="Base.Theme.ActivaESCOM">
+    </style>
+
+</resources>

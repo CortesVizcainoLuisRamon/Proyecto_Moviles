@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Rojos originales -->
+    <color name="red_300">#EF9A9A</color>
+    <color name="red_700">#D32F2F</color>
+    <color name="red_800">#C62828</color>
+    <color name="red_900">#B71C1C</color>
+
+    <!-- Rojos nuevas vistas -->
+    <color name="red_1">#C62828</color>
+    <color name="red_3">#EF5350</color>
+    <color name="red_4">#D32F2F</color>
+
+    <!-- Grises -->
+    <color name="bg_light">#F5F5F5</color>
+    <color name="gray_background">#F5F5F5</color>
+    <color name="gray_light">#E0E0E0</color>
+    <color name="text_dark">#212121</color>
+    <color name="text_gray">#9E9E9E</color>
+    <color name="gray_text">#9E9E9E</color>
+</resources>

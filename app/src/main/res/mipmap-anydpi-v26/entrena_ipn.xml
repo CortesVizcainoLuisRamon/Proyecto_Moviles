@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/entrena_ipn_background"/>
+    <foreground android:drawable="@mipmap/entrena_ipn_foreground"/>
+    <monochrome android:drawable="@mipmap/entrena_ipn_foreground"/>
+</adaptive-icon>
