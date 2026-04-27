@@ -14,7 +14,7 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registro)
 
         // Referencias a los campos
-        val etNombre          = findViewById<EditText>(R.id.etNombre)
+        val etUsuario         = findViewById<EditText>(R.id.etUsuario)
         val etBoleta          = findViewById<EditText>(R.id.etBoleta)
         val etEmail           = findViewById<EditText>(R.id.etEmail)
         val etPassword        = findViewById<EditText>(R.id.etPassword)
@@ -36,7 +36,7 @@ class RegistroActivity : AppCompatActivity() {
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
         btnRegistrar.setOnClickListener {
 
-            val nombre   = etNombre.text.toString().trim()
+            val usuario  = etUsuario.text.toString().trim()
             val boleta   = etBoleta.text.toString().trim()
             val email    = etEmail.text.toString().trim()
             val password = etPassword.text.toString()
@@ -44,10 +44,10 @@ class RegistroActivity : AppCompatActivity() {
 
             // ── Validaciones ──────────────────────────────────────────
 
-            // 1. Nombre obligatorio
-            if (nombre.isEmpty()) {
-                etNombre.error = "El nombre es obligatorio"
-                etNombre.requestFocus()
+            // 1. Usuario obligatorio
+            if (usuario.isEmpty()) {
+                etUsuario.error = "El usuario es obligatorio"
+                etUsuario.requestFocus()
                 return@setOnClickListener
             }
 
@@ -100,11 +100,9 @@ class RegistroActivity : AppCompatActivity() {
             }
 
             // ── Todo correcto: pasar datos al Login para simular sesión ──
-            // Guardamos los datos en un Intent de vuelta al Login
             val intent = Intent(this, LoginActivity::class.java)
             intent.putExtra("emailRegistrado", email)
             intent.putExtra("passwordRegistrado", password)
-            // Evita que el usuario regrese al registro con el botón atrás
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             finish()
