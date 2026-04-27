@@ -100,7 +100,8 @@
                 android:background="#F0F0F0"
                 android:hint="usuario@alumno.ipn.mx"
                 android:inputType="textEmailAddress"
-                android:paddingHorizontal="16dp" />
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/text_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,47 +119,8 @@
                 android:background="#F0F0F0"
                 android:hint="••••••••"
                 android:inputType="textPassword"
-                android:paddingHorizontal="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:gravity="center"
-                android:text="— o continúa con —"
-                android:textColor="@color/gray_text"
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/white"
-                    android:text="G"
-                    android:textColor="@color/red_3" />
-
-                <Button
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:backgroundTint="@color/white"
-                    android:text="f"
-                    android:textColor="#1877F2" />
-
-                <Button
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="✦"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/text_gray"/>
 
             <Button
                 android:id="@+id/btnEntrar"

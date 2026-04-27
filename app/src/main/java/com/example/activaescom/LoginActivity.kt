@@ -11,9 +11,15 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Entrar → va a MainActivity
         findViewById<Button>(R.id.btnEntrar).setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+
+        // Tab Registrarse → va a RegistroActivity
+        findViewById<Button>(R.id.btnTabRegister).setOnClickListener {
+            startActivity(Intent(this, RegistroActivity::class.java))
         }
     }
 }
