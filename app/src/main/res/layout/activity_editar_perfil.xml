@@ -31,7 +31,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Botón regresar (top right) -->
+
         <ImageButton
             android:id="@+id/btnRegresar"
             android:layout_width="48dp"
@@ -46,7 +46,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Avatar editable -->
         <FrameLayout
             android:id="@+id/frameAvatar"
             android:layout_width="100dp"
@@ -64,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@android:drawable/profile_defult"
+                android:src="@drawable/profile_default"
                 app:tint="@color/white" />
 
             <!-- Overlay "editar foto" -->
