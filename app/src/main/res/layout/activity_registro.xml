@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/red_1">
@@ -44,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
+        app:cardCornerRadius="30dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title">
@@ -58,7 +58,6 @@
                 android:orientation="vertical"
                 android:padding="32dp">
 
-                <!-- Tabs Iniciar sesión / Registrarse -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -88,7 +87,6 @@
                         android:textColor="@color/white" />
                 </LinearLayout>
 
-                <!-- Nombre -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,9 +104,8 @@
                     android:hint="r4mon_7u7"
                     android:inputType="textPersonName"
                     android:paddingHorizontal="16dp"
-                    android:textColorHint="@color/text_gray"/>
+                    android:textColorHint="@color/text_gray" />
 
-                <!-- Boleta / Usuario -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,9 +123,8 @@
                     android:hint="2023xxxxxx"
                     android:inputType="number"
                     android:paddingHorizontal="16dp"
-                    android:textColorHint="@color/text_gray"/>
+                    android:textColorHint="@color/text_gray" />
 
-                <!-- Correo electrónico -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,9 +142,8 @@
                     android:hint="usuario@alumno.ipn.mx"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="16dp"
-                    android:textColorHint="@color/text_gray"/>
+                    android:textColorHint="@color/text_gray" />
 
-                <!-- Contraseña -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -166,9 +161,8 @@
                     android:hint="••••••••"
                     android:inputType="textPassword"
                     android:paddingHorizontal="16dp"
-                    android:textColorHint="@color/text_gray"/>
+                    android:textColorHint="@color/text_gray" />
 
-                <!-- Confirmar contraseña -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -186,9 +180,8 @@
                     android:hint="••••••••"
                     android:inputType="textPassword"
                     android:paddingHorizontal="16dp"
-                    android:textColorHint="@color/text_gray"/>
+                    android:textColorHint="@color/text_gray" />
 
-                <!-- Separador social -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -229,7 +222,6 @@
                         android:textColor="@color/black" />
                 </LinearLayout>
 
-                <!-- Botón registrarse -->
                 <Button
                     android:id="@+id/btnRegistrar"
                     android:layout_width="match_parent"

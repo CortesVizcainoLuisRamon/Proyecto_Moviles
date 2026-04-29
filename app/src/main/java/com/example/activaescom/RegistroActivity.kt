@@ -13,7 +13,6 @@ class RegistroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
-        // Referencias a los campos
         val etUsuario         = findViewById<EditText>(R.id.etUsuario)
         val etBoleta          = findViewById<EditText>(R.id.etBoleta)
         val etEmail           = findViewById<EditText>(R.id.etEmail)
@@ -21,20 +20,17 @@ class RegistroActivity : AppCompatActivity() {
         val etPasswordConfirm = findViewById<EditText>(R.id.etPasswordConfirm)
 
         // Tab "Iniciar sesión" → regresa al Login
-        val btnTabLogin = findViewById<Button>(R.id.btnTabLogin)
-        btnTabLogin.setOnClickListener {
+        findViewById<Button>(R.id.btnTabLogin).setOnClickListener {
             finish()
         }
 
         // Texto "¿Ya tienes cuenta? Inicia sesión" → igual
-        val tvYaTienesCuenta = findViewById<TextView>(R.id.tvYaTienesCuenta)
-        tvYaTienesCuenta.setOnClickListener {
+        findViewById<TextView>(R.id.tvYaTienesCuenta).setOnClickListener {
             finish()
         }
 
         // Botón Crear cuenta
-        val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
-        btnRegistrar.setOnClickListener {
+        findViewById<Button>(R.id.btnRegistrar).setOnClickListener {
 
             val usuario  = etUsuario.text.toString().trim()
             val boleta   = etBoleta.text.toString().trim()
@@ -44,14 +40,12 @@ class RegistroActivity : AppCompatActivity() {
 
             // ── Validaciones ──────────────────────────────────────────
 
-            // 1. Usuario obligatorio
             if (usuario.isEmpty()) {
                 etUsuario.error = "El usuario es obligatorio"
                 etUsuario.requestFocus()
                 return@setOnClickListener
             }
 
-            // 2. Boleta obligatoria y debe tener 10 dígitos
             if (boleta.isEmpty()) {
                 etBoleta.error = "La boleta es obligatoria"
                 etBoleta.requestFocus()
@@ -63,7 +57,6 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 3. Email obligatorio y con formato válido
             if (email.isEmpty()) {
                 etEmail.error = "El correo es obligatorio"
                 etEmail.requestFocus()
@@ -75,7 +68,6 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 4. Contraseña obligatoria y mínimo 6 caracteres
             if (password.isEmpty()) {
                 etPassword.error = "La contraseña es obligatoria"
                 etPassword.requestFocus()
@@ -87,7 +79,6 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 5. Confirmar contraseña obligatoria y debe coincidir
             if (confirm.isEmpty()) {
                 etPasswordConfirm.error = "Confirma tu contraseña"
                 etPasswordConfirm.requestFocus()
@@ -99,7 +90,11 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // ── Todo correcto: pasar datos al Login para simular sesión ──
+            // ── Todo correcto ─────────────────────────────────────────
+
+            // ✅ Guardar datos para el perfil
+            UserPreferences.guardarDatosRegistro(this, usuario, boleta, email)
+
             val intent = Intent(this, LoginActivity::class.java)
             intent.putExtra("emailRegistrado", email)
             intent.putExtra("passwordRegistrado", password)

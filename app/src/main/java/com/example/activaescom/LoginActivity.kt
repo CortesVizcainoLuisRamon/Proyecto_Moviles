@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    // Simulamos la "base de datos" en memoria con estas variables
     private var emailGuardado    = ""
     private var passwordGuardada = ""
 
@@ -16,41 +15,40 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // Referencias a los campos
         val etEmail    = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
+
+        // ✅ Cargar email guardado en SharedPreferences (si ya se registró antes)
+        val emailPrefs = UserPreferences.getEmail(this)
+        if (emailPrefs.isNotEmpty()) {
+            emailGuardado = emailPrefs
+        }
 
         // Si venimos del Registro, precargamos el email y guardamos los datos
         intent.getStringExtra("emailRegistrado")?.let { emailReg ->
             emailGuardado    = emailReg
             passwordGuardada = intent.getStringExtra("passwordRegistrado") ?: ""
-            // Precargamos el email para que el usuario no lo escriba de nuevo
             etEmail.setText(emailReg)
         }
 
-        // Botón ENTRAR → valida y navega al MainActivity
+        // Botón ENTRAR
         findViewById<Button>(R.id.btnEntrar).setOnClickListener {
 
             val email    = etEmail.text.toString().trim()
             val password = etPassword.text.toString()
 
-            // ── Validaciones ──────────────────────────────────────────
-
-            // 1. Email obligatorio
             if (email.isEmpty()) {
                 etEmail.error = "Ingresa tu correo"
                 etEmail.requestFocus()
                 return@setOnClickListener
             }
 
-            // 2. Contraseña obligatoria
             if (password.isEmpty()) {
                 etPassword.error = "Ingresa tu contraseña"
                 etPassword.requestFocus()
                 return@setOnClickListener
             }
 
-            // 3. Verificar que coincidan con los datos registrados
             if (email != emailGuardado || password != passwordGuardada) {
                 etPassword.error = "Correo o contraseña incorrectos"
                 etPassword.requestFocus()

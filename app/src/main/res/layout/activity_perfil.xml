@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_background">
+
+        <!-- Fondo rojo superior -->
+        <View
+            android:id="@+id/header_bg"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@color/red_1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Botón hamburguesa -->
+        <ImageButton
+            android:id="@+id/btnHamburguesa"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/red_1"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/navigation"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Editar perfil (top right) -->
+        <LinearLayout
+            android:id="@+id/layoutEditarPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Aquí irá tu ícono de edición -->
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@android:drawable/edit_profile"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar perfil"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Avatar -->
+        <FrameLayout
+            android:id="@+id/frameAvatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="70dp"
+            android:background="@color/red_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Aquí irá tu foto .jpg -->
+            <ImageView
+                android:id="@+id/imgPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/profile_default"
+                app:tint="@color/white" />
+        </FrameLayout>
+
+        <!-- Nombre completo debajo del avatar -->
+        <TextView
+            android:id="@+id/tvNombreCompleto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/frameAvatar" />
+
+        <!-- ScrollView con datos -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreCompleto"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Card datos académicos -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="DATOS ACADÉMICOS"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Usuario -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="USUARIO"
+                                android:textColor="@color/gray_text"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tvUsuario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Boleta -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BOLETA"
+                                android:textColor="@color/gray_text"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tvBoleta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Correo -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CORREO INSTITUCIONAL"
+                                android:textColor="@color/gray_text"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tvCorreo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card datos personales -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="DATOS PERSONALES"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Nombre -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NOMBRE(S)"
+                                android:textColor="@color/gray_text"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tvNombre"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Apellido -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="APELLIDO(S)"
+                                android:textColor="@color/gray_text"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tvApellido"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Fecha de nacimiento -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FECHA DE NACIMIENTO"
+                                android:textColor="@color/gray_text"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/tvFechaNacimiento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Cambiar contraseña -->
+                <Button
+                    android:id="@+id/btnCambiarPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Cambiar contraseña"
+                    android:textColor="@color/red_1"
+                    android:textStyle="bold"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/bottomNavBar"
+            layout="@layout/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
