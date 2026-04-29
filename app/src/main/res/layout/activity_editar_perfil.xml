@@ -31,7 +31,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Botón regresar (top right) -->
+
         <ImageButton
             android:id="@+id/btnRegresar"
             android:layout_width="48dp"
@@ -46,7 +46,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Avatar editable -->
         <FrameLayout
             android:id="@+id/frameAvatar"
             android:layout_width="100dp"
