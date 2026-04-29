@@ -37,7 +37,7 @@
             android:id="@+id/layoutEditarPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="vertical"
@@ -49,9 +49,9 @@
 
             <!-- Aquí irá tu ícono de edición -->
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@android:drawable/edit_profile"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:src="@drawable/edit_profile"
                 app:tint="@color/white" />
 
             <TextView
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@android:drawable/profile_default"
+                android:src="@drawable/profile_default"
                 app:tint="@color/white" />
         </FrameLayout>
 
