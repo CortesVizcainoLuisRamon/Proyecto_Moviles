@@ -24,7 +24,9 @@
         <activity android:name=".CarreraActivity"     android:exported="false" />
         <activity android:name=".NuevoEntrenamientoActivity" android:exported="false" />
         <activity android:name=".ConfigActivity"      android:exported="false" />
-        <activity android:name=".RegistroActivity" />
+        <activity android:name=".RegistroActivity"      android:exported="false" />
+        <activity android:name=".PerfilActivity"         android:exported="false" />
+        <activity android:name=".EditarPerfilActivity"   android:exported="false" />
     </application>
 
 </manifest>

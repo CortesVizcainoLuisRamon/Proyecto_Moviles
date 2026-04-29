@@ -8,8 +8,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 
-object
-NavegacionHelper {
+object NavegacionHelper {
 
     fun configurarNavegacion(activity: Activity, drawerLayout: DrawerLayout) {
 
@@ -21,9 +20,10 @@ NavegacionHelper {
             }
         }
 
+        // ✅ Corregido: navPerfil → PerfilActivity
         activity.findViewById<ImageButton>(R.id.navPerfil).setOnClickListener {
-            if (activity !is NuevoEntrenamientoActivity) {
-                activity.startActivity(Intent(activity, NuevoEntrenamientoActivity::class.java))
+            if (activity !is PerfilActivity) {
+                activity.startActivity(Intent(activity, PerfilActivity::class.java))
                 activity.finish()
             }
         }
