@@ -31,7 +31,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <ImageButton
             android:id="@+id/btnRegresar"
             android:layout_width="48dp"
@@ -122,7 +121,8 @@
                             android:background="#F0F0F0"
                             android:hint="r4mon_7u7"
                             android:inputType="text"
-                            android:paddingHorizontal="16dp" />
+                            android:paddingHorizontal="16dp"
+                            android:textColorHint="@color/text_gray"/>
 
                         <View
                             android:layout_width="match_parent"
@@ -146,7 +146,8 @@
                             android:background="#F0F0F0"
                             android:hint="Ramón"
                             android:inputType="textPersonName"
-                            android:paddingHorizontal="16dp" />
+                            android:paddingHorizontal="16dp"
+                            android:textColorHint="@color/text_gray"/>
 
                         <View
                             android:layout_width="match_parent"
@@ -170,7 +171,8 @@
                             android:background="#F0F0F0"
                             android:hint="García López"
                             android:inputType="textPersonName"
-                            android:paddingHorizontal="16dp" />
+                            android:paddingHorizontal="16dp"
+                            android:textColorHint="@color/text_gray"/>
 
                         <View
                             android:layout_width="match_parent"
@@ -186,6 +188,7 @@
                             android:textColor="@color/gray_text"
                             android:textSize="11sp" />
 
+                        <!-- CAMBIO: focusable false para que abra calendario en vez del teclado -->
                         <EditText
                             android:id="@+id/etFechaNacimiento"
                             android:layout_width="match_parent"
@@ -193,8 +196,12 @@
                             android:layout_marginTop="4dp"
                             android:background="#F0F0F0"
                             android:hint="DD/MM/AAAA"
-                            android:inputType="date"
-                            android:paddingHorizontal="16dp" />
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:cursorVisible="false"
+                            android:clickable="true"
+                            android:paddingHorizontal="16dp"
+                            android:textColorHint="@color/text_gray"/>
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

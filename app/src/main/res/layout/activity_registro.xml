@@ -10,8 +10,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="32dp"
-        android:src="@android:drawable/ic_menu_directions"
-        app:tint="@color/white"
+        android:src="@drawable/logo_ipn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

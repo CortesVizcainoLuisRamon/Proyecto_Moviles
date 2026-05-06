@@ -1,5 +1,6 @@
 package com.example.activaescom
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import java.util.Calendar
 
 class EditarPerfilActivity : AppCompatActivity() {
 
@@ -26,6 +28,30 @@ class EditarPerfilActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.etApellido).setText(UserPreferences.getApellido(this))
         findViewById<EditText>(R.id.etFechaNacimiento).setText(UserPreferences.getFecha(this))
 
+        // ── Calendario para fecha de nacimiento ──
+        val etFecha = findViewById<EditText>(R.id.etFechaNacimiento)
+
+        etFecha.setOnClickListener {
+            val c = Calendar.getInstance()
+            val day   = c.get(Calendar.DAY_OF_MONTH)
+            val month = c.get(Calendar.MONTH)
+            val year  = c.get(Calendar.YEAR)
+
+            val datePicker = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { _, selectedYear, selectedMonth, selectedDay ->
+                    etFecha.setText("$selectedDay/${selectedMonth + 1}/$selectedYear")
+                },
+                year, month, day
+            )
+
+            // No permite fechas futuras
+            datePicker.datePicker.maxDate = System.currentTimeMillis()
+
+            datePicker.show()
+        }
+        // ─────────────────────────────────────────
+
         // Botón regresar
         findViewById<ImageButton>(R.id.btnRegresar).setOnClickListener {
             finish()
@@ -41,7 +67,7 @@ class EditarPerfilActivity : AppCompatActivity() {
             UserPreferences.guardarDatosPerfil(this, usuario, nombre, apellido, fecha)
 
             Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show()
-            finish() // Regresa al perfil y onResume recarga los datos
+            finish()
         }
     }
 
