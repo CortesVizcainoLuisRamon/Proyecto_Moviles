@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="ActivaESCOM"
+            android:text="EntrenaIPN"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingeniería en Sistemas"
+            android:text="Ingeniería en Sistemas Computacionales"
             android:textColor="@color/red_300"
             android:textSize="14sp" />
     </LinearLayout>

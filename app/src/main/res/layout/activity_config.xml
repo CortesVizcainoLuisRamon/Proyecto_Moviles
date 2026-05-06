@@ -10,44 +10,44 @@
         android:layout_height="match_parent"
         android:background="@color/gray_background">
 
-        <ImageButton
-            android:id="@+id/btnHamburguesa"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@color/red_1"
-            android:padding="8dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/navigation"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <!-- Fondo rojo del header -->
         <View
             android:id="@+id/header_bg"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="189dp"
             android:background="@color/red_1"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Escudo IPN -->
+        <ImageView
+            android:id="@+id/ic_logo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/logo_ipn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- EntrenaIPN -->
         <TextView
             android:id="@+id/tv_appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
             android:text="EntrenaIPN"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/ic_logo" />
 
+        <!-- Configuración -->
         <TextView
             android:id="@+id/tv_settings_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="32dp"
             android:text="Configuración"
             android:textColor="@color/white"
             android:textSize="32sp"
@@ -59,7 +59,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="189dp"
             app:layout_constraintBottom_toTopOf="@id/bottomNavBar"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -115,15 +115,10 @@
                                 android:textSize="12sp" />
                         </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@android:drawable/ic_media_next"
-                            app:tint="@color/gray_text" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Sección notificaciones -->
+                <!-- Sección NOTIFICACIONES -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -186,7 +181,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Racha de 7 días lograda"
+                                android:text="Resumen semanal de actividad"
                                 android:textColor="@color/black" />
                             <ImageView
                                 android:layout_width="24dp"
@@ -195,16 +190,83 @@
                                 android:src="@android:drawable/ic_media_next"
                                 app:tint="@color/gray_text" />
                         </RelativeLayout>
+
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Sección ajustes -->
+                <!-- Sección AJUSTES -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:text="AJUSTES"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Perfil -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_info_details" app:tint="@color/red_1" />
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Perfil" android:textColor="@color/black" />
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                        </LinearLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
+
+                        <!-- Privacidad de Datos -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_manage" app:tint="@color/red_1" />
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Privacidad de Datos" android:textColor="@color/black" />
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                        </LinearLayout>
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
+
+                        <!-- Cerrar sesión -->
+                        <LinearLayout
+                            android:id="@+id/btnCerrarSesion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:clickable="true"
+                            android:focusable="true">
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_close_clear_cancel" app:tint="@color/red_1" />
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Cerrar sesión" android:textColor="@color/black" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Sección ACERCA DE -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="ACERCA DE"
                     android:textColor="@color/red_4"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -223,42 +285,46 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+                        <!-- Versión de la app -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:padding="16dp">
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_info_details" app:tint="@color/red_1" />
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Perfil" android:textColor="@color/black" />
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Versión de la app" android:textColor="@color/black" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0.0" android:textColor="@color/gray_text" android:textSize="12sp" />
                         </LinearLayout>
 
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
 
+                        <!-- Términos y condiciones -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:padding="16dp">
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_agenda" app:tint="@color/red_1" />
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Conexión con Wearables" android:textColor="@color/black" />
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Términos y condiciones" android:textColor="@color/black" />
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
                         </LinearLayout>
 
                         <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
 
+                        <!-- Contacto y soporte -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:padding="16dp">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_manage" app:tint="@color/red_1" />
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Privacidad de Datos" android:textColor="@color/black" />
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_dialog_email" app:tint="@color/red_1" />
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Contacto y soporte" android:textColor="@color/black" />
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
                         </LinearLayout>
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
             </LinearLayout>
         </ScrollView>
 

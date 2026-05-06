@@ -20,7 +20,6 @@ object NavegacionHelper {
             }
         }
 
-        // ✅ Corregido: navPerfil → PerfilActivity
         activity.findViewById<ImageButton>(R.id.navPerfil).setOnClickListener {
             if (activity !is PerfilActivity) {
                 activity.startActivity(Intent(activity, PerfilActivity::class.java))
@@ -35,8 +34,8 @@ object NavegacionHelper {
             }
         }
 
-        // ── BOTÓN HAMBURGUESA ───────────────────────────────────────────────
-        activity.findViewById<ImageButton>(R.id.btnHamburguesa).setOnClickListener {
+        // ── BOTÓN HAMBURGUESA (opcional, no crashea si no existe en el XML) ─
+        activity.findViewById<ImageButton?>(R.id.btnHamburguesa)?.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
