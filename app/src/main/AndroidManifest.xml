@@ -27,6 +27,8 @@
         <activity android:name=".RegistroActivity"      android:exported="false" />
         <activity android:name=".PerfilActivity"         android:exported="false" />
         <activity android:name=".EditarPerfilActivity"   android:exported="false" />
+        <activity android:name=".PrivacidadActivity"    android:exported="false" />
+        <activity android:name=".TerminosActivity"    android:exported="false" />
     </application>
 
 </manifest>
