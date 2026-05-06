@@ -119,6 +119,10 @@ class ConfigActivity : AppCompatActivity() {
             val intent = Intent(this, TerminosActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<LinearLayout>(R.id.btnContacto).setOnClickListener {
+            startActivity(Intent(this, ContactoActivity::class.java))
+        }
     }
 
     override fun onBackPressed() {
