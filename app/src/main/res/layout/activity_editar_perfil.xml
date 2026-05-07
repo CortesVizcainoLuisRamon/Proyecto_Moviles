@@ -49,10 +49,9 @@
             android:id="@+id/frameAvatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="70dp"
-            android:background="@color/red_800"
-            android:clickable="true"
-            android:focusable="true"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/bg_circulo"
+            android:clipToOutline="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -62,21 +61,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/profile_default"
-                app:tint="@color/white" />
-
-            <!-- Overlay "editar foto" -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="#99000000"
-                android:gravity="center"
-                android:paddingVertical="4dp"
-                android:text="Cambiar"
-                android:textColor="@color/white"
-                android:textSize="10sp" />
+                android:src="@drawable/profile_default" />
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/btnCambiarFoto"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="#99000000"
+            android:gravity="center"
+            android:paddingVertical="4dp"
+            android:text="Cambiar"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/frameAvatar" />
 
         <!-- ScrollView con campos editables -->
         <ScrollView
