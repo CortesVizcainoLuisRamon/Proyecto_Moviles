@@ -104,8 +104,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_myplaces"
-                        app:tint="@color/red_1" />
+                        android:src="@drawable/logo_guardar"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -139,8 +138,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_view"
-                        app:tint="@color/red_1" />
+                        android:src="@drawable/logo_usardatos"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -174,8 +172,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@android:drawable/ic_lock_lock"
-                        app:tint="@color/red_1" />
+                        android:src="@drawable/logo_seguridad"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -209,8 +206,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@android:drawable/ic_dialog_map"
-                        app:tint="@color/red_1" />
+                        android:src="@drawable/logo_no_datos"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"

@@ -12,6 +12,7 @@ object UserPreferences {
     private const val KEY_NOMBRE    = "nombre"
     private const val KEY_APELLIDO  = "apellido"
     private const val KEY_FECHA     = "fecha_nacimiento"
+    private const val KEY_FOTO      = "foto_perfil"   // ← nuevo
 
     // ── GUARDAR ─────────────────────────────────────────────────────────────
 
@@ -45,6 +46,13 @@ object UserPreferences {
         }
     }
 
+    fun guardarFotoPerfil(context: Context, ruta: String) {   // ← nuevo
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit().apply {
+            putString(KEY_FOTO, ruta)
+            apply()
+        }
+    }
+
     // ── LEER ─────────────────────────────────────────────────────────────────
 
     fun getUsuario(context: Context)  = pref(context).getString(KEY_USUARIO, "") ?: ""
@@ -53,6 +61,7 @@ object UserPreferences {
     fun getNombre(context: Context)   = pref(context).getString(KEY_NOMBRE, "")  ?: ""
     fun getApellido(context: Context) = pref(context).getString(KEY_APELLIDO, "") ?: ""
     fun getFecha(context: Context)    = pref(context).getString(KEY_FECHA, "")   ?: ""
+    fun getFotoPerfil(context: Context) = pref(context).getString(KEY_FOTO, "") ?: ""  // ← nuevo
 
     private fun pref(context: Context) =
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
