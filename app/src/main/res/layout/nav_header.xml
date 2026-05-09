@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/navigation"
+            android:src="@drawable/logo_ipn"
             android:tint="@color/white" />
 
         <TextView

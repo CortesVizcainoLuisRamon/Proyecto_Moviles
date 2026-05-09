@@ -36,8 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:text="EntrenaIPN"
+            android:text="La Técnica al Servicio de la Patria"
             android:textColor="@color/white"
+            android:textStyle="italic"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ic_logo" />
@@ -91,7 +92,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:src="@drawable/logo_usuario"
-                            />
+                            android:tint="@color/red_1"/>
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -232,7 +233,7 @@
                             android:focusable="true"
                             android:background="?attr/selectableItemBackground">
 
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_perfil" />
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_perfil" android:tint="@color/red_1" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -255,7 +256,7 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_datos"  />
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_datos" android:tint="@color/red_1"/>
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Privacidad de Datos" android:textColor="@color/black" />
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
                         </LinearLayout>
@@ -273,7 +274,7 @@
                             android:focusable="true"
                             android:background="?attr/selectableItemBackground">
 
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_sesion"/>
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_sesion" android:tint="@color/red_1"/>
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Cerrar sesión" android:textColor="@color/black" />
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
                         </LinearLayout>
@@ -291,7 +292,7 @@
                             android:focusable="true"
                             android:background="?attr/selectableItemBackground">
 
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_eliminar"/>
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_eliminar" android:tint="@color/red_1"/>
 
                             <!-- Nota: El texto está en rojo para advertir que es una acción destructiva -->
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Eliminar cuenta" android:textColor="@color/red_1" android:textStyle="bold" />
@@ -333,7 +334,7 @@
                             android:gravity="center_vertical"
                             android:padding="16dp"
                             android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_version"/>
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_version" android:tint="@color/red_1"/>
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Versión de la app" android:textColor="@color/black" />
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0.0" android:textColor="@color/gray_text" android:textSize="12sp" />
                         </LinearLayout>
@@ -348,7 +349,7 @@
                             android:gravity="center_vertical"
                             android:padding="16dp"
                             android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_terminos"/>
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_terminos" android:tint="@color/red_1"/>
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Términos y condiciones" android:textColor="@color/black" />
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
                         </LinearLayout>
@@ -363,7 +364,7 @@
                             android:gravity="center_vertical"
                             android:padding="16dp"
                             android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_contacto" />
+                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_contacto" android:tint="@color/red_1"/>
                             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Contacto y soporte" android:textColor="@color/black" />
                             <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
                         </LinearLayout>
