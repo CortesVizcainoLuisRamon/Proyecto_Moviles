@@ -105,7 +105,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:src="@drawable/logo_guardar"
-                        />
+                        android:tint="@color/red_1"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -139,7 +139,8 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/logo_usardatos"/>
+                        android:src="@drawable/logo_usardatos"
+                        android:tint="@color/red_1"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -173,7 +174,8 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/logo_seguridad"/>
+                        android:src="@drawable/logo_seguridad"
+                        android:tint="@color/red_1"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -207,7 +209,8 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/logo_no_datos"/>
+                        android:src="@drawable/logo_no_datos"
+                        android:tint="@color/red_1"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
