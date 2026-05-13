@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:background="@color/red_900">
 
+        <!-- Ícono de hamburguesa (intacto) -->
         <ImageButton
             android:id="@+id/btnHamburguesa"
             android:layout_width="48dp"
@@ -18,127 +19,156 @@
             android:padding="8dp"
             android:scaleType="fitCenter"
             android:src="@drawable/navigation"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- EntrenaIPN -->
+        <TextView
+            android:id="@+id/tv_appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="EntrenaIPN"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
+
+        <!-- Carrera Matutina -->
+        <TextView
+            android:id="@+id/tv_screen_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Carrera Matutina"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_appname" />
+
+        <!-- Timer (intacto) -->
         <TextView
             android:id="@+id/tvTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="00:25:47"
             android:textColor="@color/white"
             android:textSize="48sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
+            app:layout_constraintTop_toBottomOf="@id/tv_screen_title" />
 
-        <TextView
-            android:id="@+id/tvActivityTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Carrera Matutina"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTimer" />
 
-        <LinearLayout
-            android:id="@+id/statsRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/tvActivityTitle">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Distancia:\n4.5 km"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="Ritmo:\n5:40 min/km"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <!-- ✅ mapCard entre statsRow y bottomControls -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/mapCard"
+        <!-- ScrollView que envuelve el contenido debajo del header -->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:layout_constraintBottom_toTopOf="@id/bottomControls"
-            app:layout_constraintTop_toBottomOf="@id/statsRow">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/bg_light" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Vista del Mapa"
-                android:textColor="@color/text_gray" />
-        </androidx.cardview.widget.CardView>
-
-        <!-- Controles sobre el bottom nav -->
-        <LinearLayout
-            android:id="@+id/bottomControls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_bg_white"
-            android:orientation="horizontal"
-            android:padding="10dp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/tvTimer"
             app:layout_constraintBottom_toTopOf="@id/bottomNavBar">
 
-            <Button
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pausar"
-                android:textColor="@color/black"
-                style="?android:attr/borderlessButtonStyle" />
+                android:orientation="vertical">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Finalizar"
-                android:textColor="@color/red_700"
-                style="?android:attr/borderlessButtonStyle" />
+                <!-- statsRow (intacto) -->
+                <LinearLayout
+                    android:id="@+id/statsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Música"
-                android:textColor="@color/black"
-                style="?android:attr/borderlessButtonStyle" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Distancia:\n4.5 km"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
 
-        <!-- ✅ Bottom nav bar que faltaba (causaba el crash) -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="Ritmo:\n5:40 min/km"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- mapCard (intacto) -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mapCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/bg_light" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Vista del Mapa"
+                        android:textColor="@color/text_gray" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- bottomControls (intacto) -->
+                <LinearLayout
+                    android:id="@+id/bottomControls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_bg_white"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pausar"
+                        android:textColor="@color/black"
+                        style="?android:attr/borderlessButtonStyle" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Finalizar"
+                        android:textColor="@color/red_700"
+                        style="?android:attr/borderlessButtonStyle" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Música"
+                        android:textColor="@color/black"
+                        style="?android:attr/borderlessButtonStyle" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bottom nav bar (intacto) -->
         <include
             android:id="@+id/bottomNavBar"
             layout="@layout/bottom_navigation"
