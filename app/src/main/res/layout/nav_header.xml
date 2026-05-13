@@ -7,11 +7,11 @@
 
     <LinearLayout
         android:layout_width="311dp"
-        android:layout_height="180dp"
+        android:layout_height="175dp"
         android:background="@color/red_900"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="25dp">
 
         <ImageView
             android:layout_width="60dp"
@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="14dp"
             android:text="EntrenaIPN"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -31,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingeniería en Sistemas Computacionales"
+            android:text="ESCOM - ISC"
             android:textColor="@color/red_300"
             android:textSize="14sp" />
     </LinearLayout>
@@ -50,7 +50,7 @@
             android:clickable="true"
             android:focusable="true"
             android:padding="16dp"
-            android:text="🏠  Actividad"
+            android:text="🏠  Inicio"
             android:textColor="@color/black"
             android:textSize="16sp" />
 

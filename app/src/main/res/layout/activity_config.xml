@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,7 +15,7 @@
         <View
             android:id="@+id/header_bg"
             android:layout_width="match_parent"
-            android:layout_height="189dp"
+            android:layout_height="175dp"
             android:background="@color/red_1"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,9 +60,10 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="189dp"
+            app:layout_constraintTop_toBottomOf="@id/header_bg"
             app:layout_constraintBottom_toTopOf="@id/bottomNavBar"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,9 +78,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="24dp"
+                    android:background="?attr/selectableItemBackground"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
-                    android:background="?attr/selectableItemBackground">
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -91,7 +93,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:src="@drawable/logo_usuario"
-                            android:tint="@color/red_1"/>
+                            android:tint="@color/red_1" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -149,6 +151,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="16dp">
+
                             <TextView
                                 android:id="@+id/tv_rec"
                                 android:layout_width="wrap_content"
@@ -156,6 +159,7 @@
                                 android:text="Recordatorio diario"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -163,6 +167,7 @@
                                 android:text="7:00 AM"
                                 android:textColor="@color/gray_text"
                                 android:textSize="12sp" />
+
                             <Switch
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -181,11 +186,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="16dp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Resumen semanal de actividad"
                                 android:textColor="@color/black" />
+
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
@@ -226,76 +233,146 @@
                             android:id="@+id/btnConfigPerfil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:padding="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="?attr/selectableItemBackground">
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
 
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_perfil" android:tint="@color/red_1" />
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/logo_perfil"
+                                android:tint="@color/red_1" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="16dp"
+                                android:layout_weight="1"
                                 android:text="Perfil"
                                 android:textColor="@color/black" />
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@android:drawable/ic_media_next"
+                                app:tint="@color/gray_text" />
                         </LinearLayout>
 
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
 
                         <LinearLayout
                             android:id="@+id/btnPrivacidad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:padding="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_datos" android:tint="@color/red_1"/>
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Privacidad de Datos" android:textColor="@color/black" />
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/logo_datos"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_weight="1"
+                                android:text="Privacidad de Datos"
+                                android:textColor="@color/black" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@android:drawable/ic_media_next"
+                                app:tint="@color/gray_text" />
                         </LinearLayout>
 
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
 
                         <!-- Cerrar sesión -->
                         <LinearLayout
                             android:id="@+id/btnCerrarSesion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:padding="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="?attr/selectableItemBackground">
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
 
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_sesion" android:tint="@color/red_1"/>
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Cerrar sesión" android:textColor="@color/black" />
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/logo_sesion"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_weight="1"
+                                android:text="Cerrar sesión"
+                                android:textColor="@color/black" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@android:drawable/ic_media_next"
+                                app:tint="@color/gray_text" />
                         </LinearLayout>
 
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
 
                         <!-- Eliminar cuenta -->
                         <LinearLayout
                             android:id="@+id/btnEliminarCuenta"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:padding="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="?attr/selectableItemBackground">
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
 
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_eliminar" android:tint="@color/red_1"/>
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/logo_eliminar"
+                                android:tint="@color/red_1" />
 
                             <!-- Nota: El texto está en rojo para advertir que es una acción destructiva -->
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Eliminar cuenta" android:textColor="@color/red_1" android:textStyle="bold" />
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_weight="1"
+                                android:text="Eliminar cuenta"
+                                android:textColor="@color/red_1"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@android:drawable/ic_media_next"
+                                app:tint="@color/gray_text" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -330,42 +407,102 @@
                             android:id="@+id/Version_app"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center_vertical"
-                            android:padding="16dp"
-                            android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_version" android:tint="@color/red_1"/>
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Versión de la app" android:textColor="@color/black" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0.0" android:textColor="@color/gray_text" android:textSize="12sp" />
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/logo_version"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_weight="1"
+                                android:text="Versión de la app"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1.0.0"
+                                android:textColor="@color/gray_text"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
 
                         <!-- Términos y condiciones -->
                         <LinearLayout
                             android:id="@+id/btnTerminos"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center_vertical"
-                            android:padding="16dp"
-                            android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_terminos" android:tint="@color/red_1"/>
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Términos y condiciones" android:textColor="@color/black" />
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/logo_terminos"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_weight="1"
+                                android:text="Términos y condiciones"
+                                android:textColor="@color/black" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@android:drawable/ic_media_next"
+                                app:tint="@color/gray_text" />
                         </LinearLayout>
 
-                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginHorizontal="16dp" android:background="@color/gray_light" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
 
                         <!-- Contacto y soporte -->
                         <LinearLayout
                             android:id="@+id/btnContacto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center_vertical"
-                            android:padding="16dp"
-                            android:background="?attr/selectableItemBackground">
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/logo_contacto" android:tint="@color/red_1"/>
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:text="Contacto y soporte" android:textColor="@color/black" />
-                            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_media_next" app:tint="@color/gray_text" />
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/logo_contacto"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_weight="1"
+                                android:text="Contacto y soporte"
+                                android:textColor="@color/black" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@android:drawable/ic_media_next"
+                                app:tint="@color/gray_text" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -401,11 +538,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="12dp"
                             android:text="¿Qué te parece EntrenaIPN? ¡Déjanos tu opinión!"
                             android:textColor="@color/gray_text"
-                            android:textSize="13sp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="12dp" />
+                            android:textSize="13sp" />
 
                         <!-- RatingBar en su propia fila -->
                         <RatingBar
@@ -413,11 +550,11 @@
                             style="?android:attr/ratingBarStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="12dp"
                             android:numStars="5"
                             android:rating="0"
-                            android:stepSize="1"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="12dp" />
+                            android:stepSize="1" />
 
                         <!-- Botón Enviar en su propia fila -->
                         <Button
