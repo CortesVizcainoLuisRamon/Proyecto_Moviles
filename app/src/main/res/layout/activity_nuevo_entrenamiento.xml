@@ -13,7 +13,7 @@
         <View
             android:id="@+id/header_bg"
             android:layout_width="match_parent"
-            android:layout_height="189dp"
+            android:layout_height="175dp"
             android:background="@color/red_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,83 +77,111 @@
                     android:orientation="vertical"
                     android:padding="24dp">
 
+                    <!-- ── TIPO DE ACTIVIDAD (chips) ── -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TIPO DE ACTIVIDAD"
+                        android:textColor="@color/gray_text"
+                        android:textSize="12sp" />
+
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:scrollbars="none">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:paddingTop="8dp"
-                            android:paddingBottom="8dp">
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp">
 
                             <Button
+                                android:id="@+id/btnChipCarrera"
                                 android:layout_width="90dp"
-                                android:layout_height="48dp"
+                                android:layout_height="40dp"
                                 android:layout_marginEnd="8dp"
                                 android:backgroundTint="@color/red_1"
                                 android:text="Carrera"
-                                android:textAllCaps="true"
+                                android:textAllCaps="false"
                                 android:textColor="@color/white"
-                                android:textSize="11sp" />
+                                android:textSize="12sp" />
 
                             <Button
+                                android:id="@+id/btnChipBicicleta"
                                 android:layout_width="90dp"
-                                android:layout_height="48dp"
+                                android:layout_height="40dp"
                                 android:layout_marginEnd="8dp"
                                 android:backgroundTint="@color/white"
                                 android:text="Bicicleta"
-                                android:textAllCaps="true"
+                                android:textAllCaps="false"
                                 android:textColor="@color/gray_text"
-                                android:textSize="11sp" />
+                                android:textSize="12sp" />
 
                             <Button
+                                android:id="@+id/btnChipFuerza"
                                 android:layout_width="90dp"
-                                android:layout_height="48dp"
+                                android:layout_height="40dp"
                                 android:layout_marginEnd="8dp"
                                 android:backgroundTint="@color/white"
                                 android:text="Fuerza"
-                                android:textAllCaps="true"
+                                android:textAllCaps="false"
                                 android:textColor="@color/gray_text"
-                                android:textSize="11sp" />
+                                android:textSize="12sp" />
 
                             <Button
+                                android:id="@+id/btnChipYoga"
                                 android:layout_width="90dp"
-                                android:layout_height="48dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="8dp"
                                 android:backgroundTint="@color/white"
                                 android:text="Yoga"
-                                android:textAllCaps="true"
+                                android:textAllCaps="false"
                                 android:textColor="@color/gray_text"
-                                android:textSize="11sp" />
+                                android:textSize="12sp" />
+
+                            <Button
+                                android:id="@+id/btnChipNatacion"
+                                android:layout_width="90dp"
+                                android:layout_height="40dp"
+                                android:backgroundTint="@color/white"
+                                android:text="Natación"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_text"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
                     </HorizontalScrollView>
 
+                    <!-- ── NOMBRE DE LA RUTINA ── -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="20dp"
                         android:text="NOMBRE DE LA RUTINA"
                         android:textColor="@color/gray_text"
                         android:textSize="12sp" />
 
                     <EditText
+                        android:id="@+id/etNombreRutina"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/white"
                         android:hint="Ej. Rutina matutina..."
+                        android:inputType="textCapSentences"
                         android:paddingHorizontal="16dp"
                         android:textColorHint="@color/text_gray" />
 
+                    <!-- ── CARD: DETALLES DEL ENTRENAMIENTO ── -->
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="20dp"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp">
+                        app:cardElevation="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -161,37 +189,7 @@
                             android:orientation="vertical"
                             android:padding="16dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="TIPO DE ACTIVIDAD"
-                                android:textColor="@color/gray_text"
-                                android:textSize="10sp" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Seleccionar actividad"
-                                    android:textColor="@color/black" />
-
-                                <RadioButton
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_centerVertical="true" />
-                            </RelativeLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginVertical="16dp"
-                                android:background="@color/gray_light" />
-
+                            <!-- DURACIÓN ESTIMADA -->
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -205,11 +203,14 @@
                                 android:layout_marginTop="8dp">
 
                                 <TextView
+                                    android:id="@+id/tvDuracion"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:text="0 minutos"
-                                    android:textColor="@color/black" />
+                                    android:text="30 min"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -218,6 +219,7 @@
                                     android:orientation="horizontal">
 
                                     <Button
+                                        android:id="@+id/btnDuracionMenos"
                                         android:layout_width="40dp"
                                         android:layout_height="40dp"
                                         android:backgroundTint="@color/gray_light"
@@ -225,6 +227,7 @@
                                         android:textColor="@color/black" />
 
                                     <Button
+                                        android:id="@+id/btnDuracionMas"
                                         android:layout_width="40dp"
                                         android:layout_height="40dp"
                                         android:layout_marginStart="8dp"
@@ -237,45 +240,301 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginVertical="16dp"
+                                android:layout_marginVertical="14dp"
                                 android:background="@color/gray_light" />
+
+                            <!-- META DE DISTANCIA (visible solo en Carrera/Bicicleta) -->
+                            <LinearLayout
+                                android:id="@+id/layoutMetaDistancia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="META DE DISTANCIA (km)"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="10sp" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp">
+
+                                    <TextView
+                                        android:id="@+id/tvDistancia"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:text="5.0 km"
+                                        android:textColor="@color/black"
+                                        android:textSize="15sp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:orientation="horizontal">
+
+                                        <Button
+                                            android:id="@+id/btnDistanciaMenos"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:backgroundTint="@color/gray_light"
+                                            android:text="-"
+                                            android:textColor="@color/black" />
+
+                                        <Button
+                                            android:id="@+id/btnDistanciaMas"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginStart="8dp"
+                                            android:backgroundTint="@color/red_1"
+                                            android:text="+"
+                                            android:textColor="@color/white" />
+                                    </LinearLayout>
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginVertical="14dp"
+                                    android:background="@color/gray_light" />
+
+                            </LinearLayout>
+
+                            <!-- NIVEL DE INTENSIDAD -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NIVEL DE INTENSIDAD"
+                                android:textColor="@color/gray_text"
+                                android:textSize="10sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/btnIntBaja"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginEnd="6dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/gray_light"
+                                    android:text="Baja"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp" />
+
+                                <Button
+                                    android:id="@+id/btnIntMedia"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginEnd="6dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/red_1"
+                                    android:text="Media"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+                                <Button
+                                    android:id="@+id/btnIntAlta"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/gray_light"
+                                    android:text="Alta"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- ── CARD: LUGAR ── -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="EJERCICIOS"
+                                android:text="LUGAR"
+                                android:textColor="@color/gray_text"
+                                android:textSize="10sp"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/btnLugarPista"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginEnd="6dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/red_1"
+                                    android:text="Pista"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="11sp" />
+
+                                <Button
+                                    android:id="@+id/btnLugarGimnasio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginEnd="6dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/gray_light"
+                                    android:text="Gimnasio"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="11sp" />
+
+                                <Button
+                                    android:id="@+id/btnLugarExterior"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_marginEnd="6dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/gray_light"
+                                    android:text="Exterior"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="11sp" />
+
+                                <Button
+                                    android:id="@+id/btnLugarOtro"
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/gray_light"
+                                    android:text="Otro"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="11sp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- ── CARD: FECHA Y HORA ── -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FECHA Y HORA DE INICIO"
                                 android:textColor="@color/gray_text"
                                 android:textSize="10sp" />
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp">
+                                android:layout_marginTop="10dp">
 
                                 <TextView
+                                    android:id="@+id/tvFechaHora"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:text="Ninguno añadido"
-                                    android:textColor="@color/gray_text" />
+                                    android:text="Hoy, 07:00 AM"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                <ImageView
+                                    android:id="@+id/btnEditarFecha"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
                                     android:layout_alignParentEnd="true"
                                     android:layout_centerVertical="true"
-                                    android:text="+ Añadir"
-                                    android:textColor="@color/red_4"
-                                    android:textStyle="bold" />
+                                    android:src="@drawable/logo_modificaciones"
+                                    android:tint="@color/red_1"
+                                    android:clickable="true"
+                                    android:focusable="true" />
+
                             </RelativeLayout>
+
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
+                    <!-- ── CARD: NOTAS ── -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NOTAS (opcional)"
+                                android:textColor="@color/gray_text"
+                                android:textSize="10sp" />
+
+                            <EditText
+                                android:id="@+id/etNotas"
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@android:color/transparent"
+                                android:gravity="top"
+                                android:hint="Ej. Ayuné antes, temperatura alta, lesión leve en rodilla..."
+                                android:inputType="textMultiLine|textCapSentences"
+                                android:maxLines="4"
+                                android:textColorHint="@color/text_gray"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- ── BOTÓN INICIAR ── -->
                     <Button
                         android:id="@+id/btnIniciarEntrenamiento"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="24dp"
                         android:layout_marginBottom="16dp"
                         android:backgroundTint="@color/red_1"
                         android:text="INICIAR ENTRENAMIENTO"

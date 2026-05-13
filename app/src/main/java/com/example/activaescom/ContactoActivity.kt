@@ -27,6 +27,25 @@ class ContactoActivity : AppCompatActivity() {
             abrirAppDeCorreo("david78@alumno.ipn.mx")
         }
 
+        // Acción para abrir Maps con la ubicación de ESCOM
+        val btnAbrirMaps = findViewById<LinearLayout>(R.id.btn_abrir_maps)
+        btnAbrirMaps.setOnClickListener {
+            val uri = Uri.parse(
+                "geo:19.5046,-99.1468?q=ESCOM+IPN+Av.+Juan+de+Dios+Bátiz,+Ciudad+de+México"
+            )
+            val intent = Intent(Intent.ACTION_VIEW, uri).apply {
+                setPackage("com.google.android.apps.maps")
+            }
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            } else {
+                val uriFallback = Uri.parse(
+                    "https://maps.google.com/?q=ESCOM+IPN+Av.+Juan+de+Dios+Bátiz,+Ciudad+de+México"
+                )
+                startActivity(Intent(Intent.ACTION_VIEW, uriFallback))
+            }
+        }
+
         // Acción para el botón de regresar
         btnVolver.setOnClickListener {
             finish()
