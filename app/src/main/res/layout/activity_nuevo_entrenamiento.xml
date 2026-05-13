@@ -8,42 +8,63 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/red_1">
+        android:background="@color/gray_background">
+
+        <View
+            android:id="@+id/header_bg"
+            android:layout_width="match_parent"
+            android:layout_height="189dp"
+            android:background="@color/red_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnHamburguesa"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@color/red_1"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
             android:padding="8dp"
             android:scaleType="fitCenter"
             android:src="@drawable/navigation"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="EntrenaIPN"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
 
         <TextView
             android:id="@+id/tv_title_workout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="Nuevo\nEntrenamiento"
+            android:layout_marginStart="32dp"
+            android:text="Nuevo Entrenamiento"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
+            app:layout_constraintTop_toBottomOf="@id/tv_appname" />
 
-        <!-- Contenido en card blanca -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="24dp"
             app:cardElevation="0dp"
             app:layout_constraintBottom_toTopOf="@id/bottomNavBar"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_workout">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_bg">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -56,7 +77,6 @@
                     android:orientation="vertical"
                     android:padding="24dp">
 
-                    <!-- Chips de tipo de actividad -->
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -66,8 +86,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:paddingBottom="8dp"
-                            android:paddingTop="8dp">
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
 
                             <Button
                                 android:layout_width="90dp"
@@ -75,9 +95,9 @@
                                 android:layout_marginEnd="8dp"
                                 android:backgroundTint="@color/red_1"
                                 android:text="Carrera"
+                                android:textAllCaps="true"
                                 android:textColor="@color/white"
-                                android:textSize="11sp"
-                                android:textAllCaps="true" />
+                                android:textSize="11sp" />
 
                             <Button
                                 android:layout_width="90dp"
@@ -85,9 +105,9 @@
                                 android:layout_marginEnd="8dp"
                                 android:backgroundTint="@color/white"
                                 android:text="Bicicleta"
+                                android:textAllCaps="true"
                                 android:textColor="@color/gray_text"
-                                android:textSize="11sp"
-                                android:textAllCaps="true" />
+                                android:textSize="11sp" />
 
                             <Button
                                 android:layout_width="90dp"
@@ -95,18 +115,18 @@
                                 android:layout_marginEnd="8dp"
                                 android:backgroundTint="@color/white"
                                 android:text="Fuerza"
+                                android:textAllCaps="true"
                                 android:textColor="@color/gray_text"
-                                android:textSize="11sp"
-                                android:textAllCaps="true" />
+                                android:textSize="11sp" />
 
                             <Button
                                 android:layout_width="90dp"
                                 android:layout_height="48dp"
                                 android:backgroundTint="@color/white"
                                 android:text="Yoga"
+                                android:textAllCaps="true"
                                 android:textColor="@color/gray_text"
-                                android:textSize="11sp"
-                                android:textAllCaps="true" />
+                                android:textSize="11sp" />
 
                         </LinearLayout>
                     </HorizontalScrollView>
@@ -126,9 +146,8 @@
                         android:background="@color/white"
                         android:hint="Ej. Rutina matutina..."
                         android:paddingHorizontal="16dp"
-                        android:textColorHint="@color/text_gray"/>
+                        android:textColorHint="@color/text_gray" />
 
-                    <!-- Card de opciones -->
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -153,11 +172,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp">
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Seleccionar actividad"
                                     android:textColor="@color/black" />
+
                                 <RadioButton
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -182,23 +203,27 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp">
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:text="0 minutos"
                                     android:textColor="@color/black" />
+
                                 <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
                                     android:orientation="horizontal">
+
                                     <Button
                                         android:layout_width="40dp"
                                         android:layout_height="40dp"
                                         android:backgroundTint="@color/gray_light"
                                         android:text="-"
                                         android:textColor="@color/black" />
+
                                     <Button
                                         android:layout_width="40dp"
                                         android:layout_height="40dp"
@@ -226,12 +251,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp">
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:text="Ninguno añadido"
                                     android:textColor="@color/gray_text" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
