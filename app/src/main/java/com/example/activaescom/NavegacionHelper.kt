@@ -2,7 +2,10 @@ package com.example.activaescom
 
 import android.app.Activity
 import android.content.Intent
+import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -34,7 +37,7 @@ object NavegacionHelper {
             }
         }
 
-        // ── BOTÓN HAMBURGUESA (opcional, no crashea si no existe en el XML) ─
+        // ── BOTÓN HAMBURGUESA ───────────────────────────────────────────────
         activity.findViewById<ImageButton?>(R.id.btnHamburguesa)?.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
@@ -59,22 +62,67 @@ object NavegacionHelper {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        headerView.findViewById<TextView>(R.id.menu_carrera).setOnClickListener {
-            if (activity !is CarreraActivity) {
-                activity.startActivity(Intent(activity, CarreraActivity::class.java))
-                activity.finish()
+        // ── NUEVO ENTRENAMIENTO CON DROPDOWN ────────────────────────────────
+        val menuNuevoHeader = headerView.findViewById<LinearLayout>(R.id.menu_nuevo_header)
+        val menuNuevoSubmenu = headerView.findViewById<LinearLayout>(R.id.menu_nuevo_submenu)
+        val menuNuevoArrow = headerView.findViewById<ImageView>(R.id.menu_nuevo_arrow)
+
+        menuNuevoHeader.setOnClickListener {
+            val isVisible = menuNuevoSubmenu.visibility == View.VISIBLE
+            if (isVisible) {
+                menuNuevoSubmenu.visibility = View.GONE
+                menuNuevoArrow.animate().rotation(0f).setDuration(200).start()
+            } else {
+                menuNuevoSubmenu.visibility = View.VISIBLE
+                menuNuevoArrow.animate().rotation(180f).setDuration(200).start()
             }
+        }
+
+        // ── EJERCICIOS DEL SUBMENÚ ──────────────────────────────────────────
+
+        headerView.findViewById<TextView>(R.id.menu_config_nuevo_entrenamiento).setOnClickListener {
+            activity.startActivity(Intent(activity, NuevoEntrenamientoActivity::class.java))
+            activity.finish()
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        headerView.findViewById<TextView>(R.id.menu_nuevo).setOnClickListener {
-            if (activity !is NuevoEntrenamientoActivity) {
-                activity.startActivity(Intent(activity, NuevoEntrenamientoActivity::class.java))
-                activity.finish()
-            }
+        headerView.findViewById<TextView>(R.id.menu_ejercicio_carrera).setOnClickListener {
+            activity.startActivity(Intent(activity, CarreraActivity::class.java))
+            activity.finish()
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
+        headerView.findViewById<TextView>(R.id.menu_ejercicio_caminata).setOnClickListener {
+            activity.startActivity(Intent(activity, CaminataActivity::class.java))
+            activity.finish()
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+        headerView.findViewById<TextView>(R.id.menu_ejercicio_bicicleta).setOnClickListener {
+            activity.startActivity(Intent(activity, BicicletaActivity::class.java))
+            activity.finish()
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+        headerView.findViewById<TextView>(R.id.menu_ejercicio_fuerza).setOnClickListener {
+            activity.startActivity(Intent(activity, FuerzaActivity::class.java))
+            activity.finish()
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+        headerView.findViewById<TextView>(R.id.menu_ejercicio_yoga).setOnClickListener {
+            activity.startActivity(Intent(activity, YogaActivity::class.java))
+            activity.finish()
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+        headerView.findViewById<TextView>(R.id.menu_ejercicio_natacion).setOnClickListener {
+            activity.startActivity(Intent(activity, NatacionActivity::class.java))
+            activity.finish()
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+        // ── CONFIGURACIÓN ───────────────────────────────────────────────────
         headerView.findViewById<TextView>(R.id.menu_config).setOnClickListener {
             if (activity !is ConfigActivity) {
                 activity.startActivity(Intent(activity, ConfigActivity::class.java))
@@ -83,6 +131,7 @@ object NavegacionHelper {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
+        // ── CERRAR SESIÓN ───────────────────────────────────────────────────
         headerView.findViewById<TextView>(R.id.menu_logout).setOnClickListener {
             drawerLayout.closeDrawer(GravityCompat.START)
             val intent = Intent(activity, LoginActivity::class.java)

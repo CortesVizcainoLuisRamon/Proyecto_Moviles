@@ -30,6 +30,11 @@
         <activity android:name=".PrivacidadActivity"    android:exported="false" />
         <activity android:name=".TerminosActivity"    android:exported="false" />
         <activity android:name=".ContactoActivity" android:exported="false" />
+        <activity android:name=".YogaActivity" android:exported="false" />
+        <activity android:name=".NatacionActivity" android:exported="false" />
+        <activity android:name=".BicicletaActivity" android:exported="false" />
+        <activity android:name=".FuerzaActivity" android:exported="false" />
+        <activity android:name=".CaminataActivity" android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

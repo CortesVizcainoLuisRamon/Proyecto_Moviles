@@ -19,16 +19,18 @@
             android:background="@color/red_1"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Escudo IPN -->
-        <ImageView
-            android:id="@+id/ic_logo"
+        <ImageButton
+            android:id="@+id/btnHamburguesa"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:src="@drawable/logo_ipn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/navigation"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:padding="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- EntrenaIPN -->
         <TextView
@@ -41,11 +43,11 @@
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_logo" />
+            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
 
-        <!-- Configuración -->
+        <!-- Título de la pantalla -->
         <TextView
-            android:id="@+id/tv_settings_title"
+            android:id="@+id/tv_screen_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -92,7 +94,7 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/logo_usuario"
+                            android:src="@drawable/usuario"
                             android:tint="@color/red_1" />
 
                         <LinearLayout
@@ -197,7 +199,7 @@
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_alignParentEnd="true"
-                                android:src="@android:drawable/ic_media_next"
+                                android:src="@drawable/flecha_config"
                                 app:tint="@color/gray_text" />
                         </RelativeLayout>
 
@@ -242,7 +244,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@drawable/logo_perfil"
+                                android:src="@drawable/profile"
                                 android:tint="@color/red_1" />
 
                             <TextView
@@ -256,7 +258,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@android:drawable/ic_media_next"
+                                android:src="@drawable/flecha_config"
                                 app:tint="@color/gray_text" />
                         </LinearLayout>
 
@@ -293,7 +295,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@android:drawable/ic_media_next"
+                                android:src="@drawable/flecha_config"
                                 app:tint="@color/gray_text" />
                         </LinearLayout>
 
@@ -331,7 +333,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@android:drawable/ic_media_next"
+                                android:src="@drawable/flecha_config"
                                 app:tint="@color/gray_text" />
                         </LinearLayout>
 
@@ -371,7 +373,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@android:drawable/ic_media_next"
+                                android:src="@drawable/flecha_config"
                                 app:tint="@color/gray_text" />
                         </LinearLayout>
 
@@ -465,7 +467,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@android:drawable/ic_media_next"
+                                android:src="@drawable/flecha_config"
                                 app:tint="@color/gray_text" />
                         </LinearLayout>
 
@@ -501,7 +503,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@android:drawable/ic_media_next"
+                                android:src="@drawable/flecha_config"
                                 app:tint="@color/gray_text" />
                         </LinearLayout>
 
