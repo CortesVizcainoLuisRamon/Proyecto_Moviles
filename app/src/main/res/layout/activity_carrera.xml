@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:text="Carrera Matutina"
+            android:text="Carrera"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold"

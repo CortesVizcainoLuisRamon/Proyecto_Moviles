@@ -66,31 +66,142 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/menu_carrera"
+        <LinearLayout
+            android:id="@+id/menu_nuevo_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="16dp"
-            android:text="🏃  Carrera matutina"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/menu_nuevo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="16dp"
-            android:text="💪  Nuevo entrenamiento"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            <LinearLayout
+                android:id="@+id/menu_nuevo_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:gravity="center_vertical">
 
-        <!-- ✅ Nuevo item -->
+                <TextView
+                    android:id="@+id/menu_nuevo_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="💪  Entrenamientos"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/menu_nuevo_arrow"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/opciones_entrenamientos"
+                    android:rotation="0"
+                    android:tint="@color/gray_text"
+                    android:layout_marginEnd="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_nuevo_submenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/menu_config_nuevo_entrenamiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:text="📝  Configurar entrenamiento"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/menu_ejercicio_carrera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:text="🏃  Carrera"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/menu_ejercicio_caminata"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:text="🚶  Caminata"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/menu_ejercicio_bicicleta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:text="🚴  Bicicleta"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/menu_ejercicio_fuerza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:text="🏋️  Fuerza"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/menu_ejercicio_yoga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:text="🧘  Yoga"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/menu_ejercicio_natacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:text="🏊  Natación"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/menu_config"
             android:layout_width="match_parent"
@@ -110,7 +221,6 @@
             android:layout_marginTop="8dp"
             android:background="@color/gray_light" />
 
-        <!-- Cerrar sesión -->
         <TextView
             android:id="@+id/menu_logout"
             android:layout_width="match_parent"
