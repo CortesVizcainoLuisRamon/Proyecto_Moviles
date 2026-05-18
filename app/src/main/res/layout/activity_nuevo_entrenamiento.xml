@@ -13,7 +13,7 @@
         <View
             android:id="@+id/header_bg"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
+            android:layout_height="160dp"
             android:background="@color/red_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,38 +23,57 @@
             android:id="@+id/btnHamburguesa"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:padding="8dp"
-            android:scaleType="fitCenter"
             android:src="@drawable/navigation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:padding="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnMasOpciones"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/opciones"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="31dp"
+            android:tint="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <TextView
             android:id="@+id/tv_appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="37dp"
             android:text="EntrenaIPN"
             android:textColor="@color/white"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
+            app:layout_constraintStart_toEndOf="@id/btnHamburguesa"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/tv_title_workout"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_screen_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="Nuevo Entrenamiento"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
+            android:text="Nuevo entrenamiento"
             android:textColor="@color/white"
-            android:textSize="32sp"
+            android:textSize="31sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_appname" />
+            app:layout_constraintStart_toEndOf="@id/btnHamburguesa"
+            app:layout_constraintEnd_toStartOf="@id/btnMasOpciones"
+            app:layout_constraintTop_toBottomOf="@id/tv_appname"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -67,8 +86,10 @@
             app:layout_constraintTop_toBottomOf="@id/header_bg">
 
             <ScrollView
+                android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fillViewport="true"
                 android:background="@color/gray_background">
 
                 <LinearLayout
@@ -106,7 +127,7 @@
                                 android:text="Carrera"
                                 android:textAllCaps="false"
                                 android:textColor="@color/white"
-                                android:textSize="12sp" />
+                                android:textSize="12sp"/>
 
                             <Button
                                 android:id="@+id/btnChipCaminata"
@@ -231,7 +252,8 @@
                                         android:layout_height="40dp"
                                         android:backgroundTint="@color/gray_light"
                                         android:text="-"
-                                        android:textColor="@color/black" />
+                                        android:textColor="@color/black"
+                                        app:cornerRadius="28dp"/>
 
                                     <Button
                                         android:id="@+id/btnDuracionMas"
@@ -240,7 +262,8 @@
                                         android:layout_marginStart="8dp"
                                         android:backgroundTint="@color/red_1"
                                         android:text="+"
-                                        android:textColor="@color/white" />
+                                        android:textColor="@color/white"
+                                        app:cornerRadius="28dp"/>
                                 </LinearLayout>
                             </RelativeLayout>
 
@@ -269,39 +292,52 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp">
 
-                                    <TextView
-                                        android:id="@+id/tvDistancia"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_centerVertical="true"
-                                        android:text="5.0 km"
-                                        android:textColor="@color/black"
-                                        android:textSize="15sp"
-                                        android:textStyle="bold" />
-
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_alignParentEnd="true"
-                                        android:orientation="horizontal">
+                                        android:orientation="horizontal"
+                                        android:gravity="center_vertical"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_toStartOf="@id/ivEditarDistancia">
 
-                                        <Button
-                                            android:id="@+id/btnDistanciaMenos"
-                                            android:layout_width="40dp"
-                                            android:layout_height="40dp"
-                                            android:backgroundTint="@color/gray_light"
-                                            android:text="-"
-                                            android:textColor="@color/black" />
+                                        <EditText
+                                            android:id="@+id/etDistanciaInput"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:minWidth="35dp"
+                                            android:text="3.0"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold"
+                                            android:inputType="numberDecimal"
+                                            android:background="@android:color/transparent"
+                                            android:imeOptions="actionDone"
+                                            android:maxLength="4"
+                                            android:padding="0dp"
+                                            android:importantForAutofill="no" />
 
-                                        <Button
-                                            android:id="@+id/btnDistanciaMas"
-                                            android:layout_width="40dp"
-                                            android:layout_height="40dp"
-                                            android:layout_marginStart="8dp"
-                                            android:backgroundTint="@color/red_1"
-                                            android:text="+"
-                                            android:textColor="@color/white" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=" km"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold"
+                                            android:padding="0dp" />
                                     </LinearLayout>
+
+                                    <ImageView
+                                        android:id="@+id/ivEditarDistancia"
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:src="@drawable/logo_modificaciones"
+                                        app:tint="@color/red_1"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:background="?attr/selectableItemBackgroundBorderless"/>
+
                                 </RelativeLayout>
                             </LinearLayout>
 
@@ -316,8 +352,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="¿CUÁNTAS HORAS DORMISTE ANOCHE?"
                                 android:textColor="@color/gray_text"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
+                                android:textSize="10sp" />
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -338,7 +373,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:text="7 hrs"
+                                    android:text="8 hrs"
                                     android:textColor="@color/red_1"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
@@ -350,7 +385,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
                                 android:max="12"
-                                android:progress="7"
+                                android:progress="8"
                                 android:progressTint="@color/red_1"
                                 android:thumbTint="@color/red_1" />
 
@@ -383,7 +418,7 @@
                                     android:text="Casa"
                                     android:textAllCaps="false"
                                     android:textColor="@color/white"
-                                    android:textSize="11sp" />
+                                    android:textSize="10sp" />
 
                                 <Button
                                     android:id="@+id/btnLugarGimnasio"
@@ -392,10 +427,10 @@
                                     android:layout_marginEnd="6dp"
                                     android:layout_weight="1"
                                     android:backgroundTint="@color/gray_light"
-                                    android:text="Exterior"
+                                    android:text="Parque"
                                     android:textAllCaps="false"
                                     android:textColor="@color/gray_text"
-                                    android:textSize="11sp" />
+                                    android:textSize="10sp" />
 
                                 <Button
                                     android:id="@+id/btnLugarExterior"
@@ -407,7 +442,7 @@
                                     android:text="Pista"
                                     android:textAllCaps="false"
                                     android:textColor="@color/gray_text"
-                                    android:textSize="11sp" />
+                                    android:textSize="10sp" />
 
                                 <Button
                                     android:id="@+id/btnLugarOtro"
@@ -418,9 +453,22 @@
                                     android:text="Otro"
                                     android:textAllCaps="false"
                                     android:textColor="@color/gray_text"
-                                    android:textSize="11sp" />
+                                    android:textSize="10sp" />
                             </LinearLayout>
 
+                            <EditText
+                                android:id="@+id/etOtroLugarInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/white"
+                                android:hint="¿Dónde vas a entrenar?"
+                                android:inputType="textCapSentences"
+                                android:paddingHorizontal="16dp"
+                                android:textColorHint="@color/text_gray"
+                                android:textSize="14sp"
+                                android:visibility="gone"
+                                android:importantForAutofill="no" />
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
@@ -441,8 +489,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="FECHA DE ENTRENAMIENTO"
                                     android:textColor="@color/gray_text"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="10sp" />
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
@@ -473,6 +520,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardNotas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -512,13 +560,13 @@
                         android:id="@+id/btnIniciarEntrenamiento"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="6dp"
                         android:backgroundTint="@color/red_1"
                         android:text="INICIAR ENTRENAMIENTO"
                         android:textColor="@color/white"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"
+                        app:cornerRadius="28dp"/>
                 </LinearLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>

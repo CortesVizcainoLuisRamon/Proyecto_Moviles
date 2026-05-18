@@ -22,21 +22,21 @@
             android:id="@+id/btnHamburguesa"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@color/red_1"
-            android:padding="8dp"
-            android:scaleType="fitCenter"
             android:src="@drawable/navigation"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:padding="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <LinearLayout
             android:id="@+id/layoutEditarPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="27dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="31dp"
             android:gravity="center"
             android:orientation="vertical"
             android:clickable="true"
@@ -104,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="18dp">
+                android:padding="25dp">
 
                 <TextView
                     android:layout_width="wrap_content"

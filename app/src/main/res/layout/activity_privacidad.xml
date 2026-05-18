@@ -8,7 +8,7 @@
     <View
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="160dp"
         android:background="@color/red_1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,40 +16,59 @@
 
     <!-- Escudo IPN -->
     <ImageView
-        android:id="@+id/ic_logo_ipn"
+        android:id="@+id/ic_logo_ipn_contacto"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/logo_ipn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/btnMasOpciones"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:src="@drawable/opciones"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        android:padding="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="31dp"
+        android:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"
+        android:focusable="true"/>
+
     <!-- Título Pequeño: EntrenaIPN -->
     <TextView
-        android:id="@+id/tv_app_name"
+        android:id="@+id/tv_appname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="37dp"
         android:text="EntrenaIPN"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ic_logo_ipn" />
+        app:layout_constraintStart_toEndOf="@+id/ic_logo_ipn_contacto"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Título Grande: Privacidad de datos -->
     <TextView
-        android:id="@+id/tv_title_privacy"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_screen_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
         android:text="Privacidad de datos"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
+        app:layout_constraintStart_toEndOf="@+id/ic_logo_ipn_contacto"
+        app:layout_constraintEnd_toStartOf="@id/btnMasOpciones"
+        app:layout_constraintTop_toBottomOf="@id/tv_appname"/>
 
     <!-- 2. Contenedor del contenido  -->
     <androidx.cardview.widget.CardView
@@ -109,8 +128,8 @@
                     android:layout_marginBottom="16dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:src="@drawable/logo_guardar"
                         android:tint="@color/red_1"/>
 
@@ -144,8 +163,8 @@
                     android:layout_marginBottom="16dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:src="@drawable/logo_usardatos"
                         android:tint="@color/red_1"/>
 
@@ -179,8 +198,8 @@
                     android:layout_marginBottom="16dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:src="@drawable/logo_seguridad"
                         android:tint="@color/red_1"/>
 
@@ -214,8 +233,8 @@
                     android:layout_marginBottom="24dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:src="@drawable/logo_no_datos"
                         android:tint="@color/red_1"/>
 
@@ -260,7 +279,8 @@
                     android:backgroundTint="@color/red_1"
                     android:text="ENTENDIDO"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:cornerRadius="28dp"/>
 
             </LinearLayout>
         </ScrollView>

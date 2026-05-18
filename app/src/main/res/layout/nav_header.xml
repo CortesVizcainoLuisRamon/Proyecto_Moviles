@@ -122,7 +122,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:padding="12dp"
-                    android:text="📝  Configurar entrenamiento"
+                    android:text="📝  Nuevo entrenamiento"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
