@@ -139,7 +139,8 @@
                 android:backgroundTint="@color/red_1"
                 android:text="ENTRAR"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:cornerRadius="28dp"/>
 
             <TextView
                 android:layout_width="match_parent"

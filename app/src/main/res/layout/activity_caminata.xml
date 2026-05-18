@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,7 +15,7 @@
         <View
             android:id="@+id/header_bg"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
+            android:layout_height="125dp"
             android:background="@color/red_1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -21,76 +23,100 @@
 
         <ImageButton
             android:id="@+id/btnHamburguesa"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/navigation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:padding="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnMasOpciones"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/opciones"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="31dp"
+            android:tint="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <TextView
             android:id="@+id/tv_appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="37dp"
             android:text="EntrenaIPN"
             android:textColor="@color/white"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/btnHamburguesa"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/tv_screen_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
             android:text="Caminata"
             android:textColor="@color/white"
-            android:textSize="28sp"
+            android:textSize="32sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_appname" />
+            app:layout_constraintStart_toEndOf="@id/btnHamburguesa"
+            app:layout_constraintEnd_toStartOf="@id/btnMasOpciones"
+            app:layout_constraintTop_toBottomOf="@id/tv_appname"/>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:fillViewport="true"
+            android:scrollbars="none"
+            android:clipToPadding="false"
             app:layout_constraintTop_toBottomOf="@id/header_bg"
-            app:layout_constraintBottom_toTopOf="@id/bottomNavBar">
+            app:layout_constraintBottom_toTopOf="@id/bottomNavBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="16dp">
+                android:paddingBottom="30dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="24dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+                    app:cardElevation="2dp"
+                    android:layout_marginTop="24dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="16dp">
+                        android:padding="24dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TIEMPO ACTIVO"
+                            android:text="TIEMPO DE RECORRIDO"
                             android:textColor="@color/gray_text"
                             android:textSize="10sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:letterSpacing="0.15" />
 
                         <TextView
                             android:id="@+id/tvTimer"
@@ -101,115 +127,59 @@
                             android:textColor="@color/red_1"
                             android:textSize="52sp"
                             android:textStyle="bold" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="12dp">
-
-                            <Button
-                                android:id="@+id/btnPausar"
-                                android:layout_width="100dp"
-                                android:layout_height="40dp"
-                                android:layout_marginEnd="8dp"
-                                android:backgroundTint="@color/gray_light"
-                                android:text="Pausar"
-                                android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textSize="13sp" />
-
-                            <Button
-                                android:id="@+id/btnFinalizar"
-                                android:layout_width="100dp"
-                                android:layout_height="40dp"
-                                android:backgroundTint="@color/red_1"
-                                android:text="Finalizar"
-                                android:textAllCaps="false"
-                                android:textColor="@color/white"
-                                android:textSize="13sp" />
-                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- ── 1. ESTADÍSTICAS EN VIVO (Distancia + Ritmo) ── -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginEnd="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="1dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="12dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="PASOS"
-                                android:textColor="@color/gray_text"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:id="@+id/tvPasos"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                android:textColor="@color/black"
-                                android:textSize="22sp"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="pasos totales"
-                                android:textColor="@color/gray_text"
-                                android:textSize="10sp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="24dp">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="6dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="1dp">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:gravity="center"
-                            android:padding="12dp">
+                            android:padding="14dp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="DISTANCIA"
                                 android:textColor="@color/gray_text"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="0.08"/>
+
                             <TextView
                                 android:id="@+id/tvDistancia"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
                                 android:text="0.0"
                                 android:textColor="@color/black"
-                                android:textSize="22sp"
+                                android:textSize="26sp"
                                 android:textStyle="bold" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="km"
                                 android:textColor="@color/gray_text"
-                                android:textSize="10sp" />
+                                android:textSize="11sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -217,45 +187,55 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="1dp">
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="24dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:gravity="center"
-                            android:padding="12dp">
+                            android:padding="14dp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="RITMO"
                                 android:textColor="@color/gray_text"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="0.08"/>
+
                             <TextView
                                 android:id="@+id/tvRitmo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
                                 android:text="--:--"
                                 android:textColor="@color/black"
-                                android:textSize="22sp"
+                                android:textSize="26sp"
                                 android:textStyle="bold" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="min/km"
                                 android:textColor="@color/gray_text"
-                                android:textSize="10sp" />
+                                android:textSize="11sp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
+                <!-- ── 3. MAPA ── -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/mapCard"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="250dp"
                     android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="20dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp">
 
@@ -274,13 +254,25 @@
                         android:textSize="14sp" />
                 </androidx.cardview.widget.CardView>
 
+                <!-- ── 4. ENTORNO / TERRENO ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="20dp"
+                    android:text="TERRENO"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="1dp">
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -288,19 +280,10 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ENTORNO / TERRENO"
-                            android:textColor="@color/gray_text"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp">
+                            android:orientation="horizontal">
 
                             <Button
                                 android:id="@+id/btnEntornoUrbano"
@@ -339,6 +322,669 @@
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                <!-- ── 5. DETALLES PLANIFICADOS ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="20dp"
+                    android:text="DETALLES PLANIFICADOS"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Rutina + Meta -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/tvConfigRutinaTitulo"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Rutina no especificada"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvConfigMeta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Meta: 3.0 km"
+                                android:textColor="@color/red_1"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Horas de sueño -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/sleep"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:text="Horas de sueño"
+                                android:textColor="@color/gray_text"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvConfigSueno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="@color/black"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Lugar -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/location"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:text="Lugar"
+                                android:textColor="@color/gray_text"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvConfigLugar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="@color/black"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Duración pactada -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/timer"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:text="Duración pactada"
+                                android:textColor="@color/gray_text"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvConfigDuracion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-- min"
+                                android:textColor="@color/black"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Fecha -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="12dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/calendario"
+                                android:tint="@color/red_1" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:text="Fecha"
+                                android:textColor="@color/gray_text"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/guardarNotas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="@color/black"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Notas -->
+                        <LinearLayout
+                            android:id="@+id/layoutConfigNotas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/gray_light" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingHorizontal="16dp"
+                                android:paddingVertical="12dp">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/notes"
+                                    android:tint="@color/red_1" />
+
+                                <TextView
+                                    android:id="@+id/tvConfigNotas"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="14dp"
+                                    android:text="Sin notas previas"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="13sp"
+                                    android:fontStyle="italic" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ── 6. MÚSICA ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="20dp"
+                    android:text="MÚSICA"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Selecciona tu plataforma"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Spotify -->
+                        <LinearLayout
+                            android:id="@+id/btnPlataformaSpotify"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="14dp">
+
+                            <ImageView
+                                android:id="@+id/ivLogoSpotify"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/spotify"
+                                tools:srcCompat="@android:drawable/ic_menu_compass" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Spotify"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sincronizar tus playlists de entrenamiento"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/flecha_config"
+                                app:tint="@color/gray_text" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- YouTube Music -->
+                        <LinearLayout
+                            android:id="@+id/btnPlataformaYoutube"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="14dp">
+
+                            <ImageView
+                                android:id="@+id/ivLogoYoutube"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/youtube_music"
+                                tools:srcCompat="@android:drawable/ic_menu_compass" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="YouTube Music"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Abrir tu biblioteca musical"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/flecha_config"
+                                app:tint="@color/gray_text" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Apple Music -->
+                        <LinearLayout
+                            android:id="@+id/btnPlataformaApple"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="14dp">
+
+                            <ImageView
+                                android:id="@+id/ivLogoApple"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/apple_music"
+                                tools:srcCompat="@android:drawable/ic_menu_compass" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Apple Music"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Vincular tus canciones favoritas"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/flecha_config"
+                                app:tint="@color/gray_text" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Amazon Music -->
+                        <LinearLayout
+                            android:id="@+id/btnPlataformaAmazon"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="14dp">
+
+                            <ImageView
+                                android:id="@+id/ivLogoAmazon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/amazon_music"
+                                tools:srcCompat="@android:drawable/ic_menu_compass" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Amazon Music"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Acceder a tus listas de reproducción"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/flecha_config"
+                                app:tint="@color/gray_text" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/gray_light" />
+
+                        <!-- Deezer -->
+                        <LinearLayout
+                            android:id="@+id/btnPlataformaDeezer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="14dp">
+
+                            <ImageView
+                                android:id="@+id/ivLogoDeezer"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/deezer"
+                                tools:srcCompat="@android:drawable/ic_menu_compass" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Deezer"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sincronizar tus mixes de música"
+                                    android:textColor="@color/gray_text"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/flecha_config"
+                                app:tint="@color/gray_text" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ── 7. BOTONES DE CONTROL ── -->
+                <LinearLayout
+                    android:id="@+id/layoutControlesContenedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/gray_background"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginHorizontal="24dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnIniciarCronometro"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:backgroundTint="@color/red_1"
+                        android:text="INICIAR CRONÓMETRO"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:elevation="6dp"
+                        android:visibility="visible"
+                        app:cornerRadius="28dp"
+                        app:icon="@drawable/cronometro"
+                        app:iconGravity="textStart"
+                        app:iconPadding="12dp"
+                        app:iconSize="24dp"
+                        app:iconTint="@color/white" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutControlesActivos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPausar"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="0.9"
+                            android:layout_marginEnd="12dp"
+                            android:backgroundTint="@color/white"
+                            android:text="Pausar"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:elevation="4dp"
+                            app:strokeColor="@color/gray_light"
+                            app:strokeWidth="1.5dp"
+                            app:cornerRadius="28dp"
+                            app:icon="@drawable/pause"
+                            app:iconGravity="textStart"
+                            app:iconPadding="6dp"
+                            app:iconSize="18dp"
+                            app:iconTint="@color/black" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFinalizar"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_weight="1.7"
+                            android:backgroundTint="@color/red_1"
+                            android:text="Finalizar entrenamiento"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:elevation="4dp"
+                            app:cornerRadius="28dp"
+                            app:icon="@drawable/finish"
+                            app:iconGravity="textStart"
+                            app:iconPadding="6dp"
+                            app:iconSize="18dp"
+                            app:iconTint="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
 

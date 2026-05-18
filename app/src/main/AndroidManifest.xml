@@ -11,7 +11,7 @@
 
         <!-- ✅ Login es la pantalla inicial -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginActivity" android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +22,9 @@
         <activity android:name=".MainActivity"        android:exported="false" />
         <activity android:name=".ProgresoActivity"    android:exported="false" />
         <activity android:name=".CarreraActivity"     android:exported="false" />
-        <activity android:name=".NuevoEntrenamientoActivity" android:exported="false" />
+        <activity android:name=".NuevoEntrenamientoActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
         <activity android:name=".ConfigActivity"      android:exported="false" />
-        <activity android:name=".RegistroActivity"      android:exported="false" />
+        <activity android:name=".RegistroActivity" android:windowSoftInputMode="adjustResize" android:exported="false" />
         <activity android:name=".PerfilActivity"         android:exported="false" />
         <activity android:name=".EditarPerfilActivity"   android:exported="false" />
         <activity android:name=".PrivacidadActivity"    android:exported="false" />

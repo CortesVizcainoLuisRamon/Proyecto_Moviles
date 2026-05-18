@@ -13,7 +13,7 @@
         <View
             android:id="@+id/header_bg"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
+            android:layout_height="125dp"
             android:background="@color/red_1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -21,40 +21,59 @@
 
         <ImageButton
             android:id="@+id/btnHamburguesa"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-            android:padding="6dp"
-            android:scaleType="fitCenter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/navigation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:padding="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnMasOpciones"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/opciones"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="31dp"
+            android:tint="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <TextView
             android:id="@+id/tv_appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="37dp"
             android:text="EntrenaIPN"
             android:textColor="@color/white"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnHamburguesa" />
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/btnHamburguesa"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/tv_screen_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="Yoga y Flexibilidad"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
+            android:text="Yoga y flexibilidad"
             android:textColor="@color/white"
-            android:textSize="28sp"
+            android:textSize="32sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_appname" />
+            app:layout_constraintStart_toEndOf="@id/btnHamburguesa"
+            app:layout_constraintEnd_toStartOf="@id/btnMasOpciones"
+            app:layout_constraintTop_toBottomOf="@id/tv_appname"/>
 
         <ScrollView
             android:layout_width="match_parent"

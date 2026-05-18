@@ -238,7 +238,8 @@
                     android:backgroundTint="@color/red_1"
                     android:text="CREAR CUENTA"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:cornerRadius="28dp"/>
 
                 <TextView
                     android:id="@+id/tvYaTienesCuenta"
