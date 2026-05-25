@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottomNavBar"
     android:layout_width="match_parent"
     android:layout_height="56dp"
@@ -16,7 +17,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         android:padding="14dp"
-        android:tint="@color/red_1" />
+        app:tint="@color/bottom_nav_colors" />
 
     <ImageButton
         android:id="@+id/navPerfil"
@@ -27,7 +28,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         android:padding="14dp"
-        android:tint="@color/red_1"/>
+        app:tint="@color/bottom_nav_colors"/>
 
     <ImageButton
         android:id="@+id/navConfig"
@@ -38,5 +39,5 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         android:padding="14dp"
-        android:tint="@color/red_1"/>
+        app:tint="@color/bottom_nav_colors"/>
 </LinearLayout>

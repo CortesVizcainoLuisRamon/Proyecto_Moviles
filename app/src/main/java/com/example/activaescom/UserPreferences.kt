@@ -65,4 +65,52 @@ object UserPreferences {
 
     private fun pref(context: Context) =
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+    fun guardarEmail(
+        context: Context,
+        email: String
+    ) {
+
+        context
+            .getSharedPreferences(
+                PREFS_NAME,
+                Context.MODE_PRIVATE
+            )
+            .edit()
+            .putString("email_actual", email)
+            .apply()
+    }
+
+    fun getEmailActual(
+        context: Context
+    ): String {
+
+        return context
+            .getSharedPreferences(
+                PREFS_NAME,
+                Context.MODE_PRIVATE
+            )
+            .getString("email_actual", "") ?: ""
+    }
+
+    fun guardarUsuarioId(
+        context: Context,
+        id: Int
+    ) {
+
+        pref(context)
+            .edit()
+            .putInt("usuario_id", id)
+            .apply()
+    }
+
+    fun getUsuarioId(
+        context: Context
+    ): Int {
+
+        return pref(context)
+            .getInt("usuario_id", -1)
+    }
+
+
 }

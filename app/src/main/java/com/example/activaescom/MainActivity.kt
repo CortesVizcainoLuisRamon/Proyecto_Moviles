@@ -8,7 +8,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
 
@@ -17,22 +17,14 @@ class MainActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)
         setContentView(R.layout.activity_main)
 
+        findViewById<android.widget.ImageButton>(R.id.navInicio).isSelected = true
+
         drawerLayout = findViewById(R.id.drawerLayout)
         NavegacionHelper.configurarNavegacion(this, drawerLayout)
 
         // "Última Actividad" → CarreraActivity
         findViewById<CardView>(R.id.cardUltimaActividad).setOnClickListener {
             startActivity(Intent(this, CarreraActivity::class.java))
-        }
-
-        // "Progreso" card → ProgresoActivity
-        findViewById<CardView>(R.id.cardProgreso).setOnClickListener {
-            startActivity(Intent(this, ProgresoActivity::class.java))
-        }
-
-        // "Rutinas" card → puedes agregar su Activity aquí en el futuro
-        findViewById<CardView>(R.id.cardRutinas).setOnClickListener {
-            // startActivity(Intent(this, RutinasActivity::class.java))
         }
     }
 

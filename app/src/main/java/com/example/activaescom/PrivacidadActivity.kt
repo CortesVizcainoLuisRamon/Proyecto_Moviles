@@ -1,23 +1,45 @@
 package com.example.activaescom
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.ImageButton
 
-class PrivacidadActivity : AppCompatActivity() {
+class PrivacidadActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 1. Vinculamos esta lógica con el diseño XML que creaste
         setContentView(R.layout.activity_privacidad)
 
-        // 2. Buscamos el botón "Entendido" en el diseño
-        val btnEntendido = findViewById<Button>(R.id.btn_entendido)
+        findViewById<android.widget.ImageButton>(R.id.navConfig).isSelected = true
 
-        // 3. Le decimos qué hacer al hacer clic
+        // 1. Botón "Entendido" que ya tenías
+        val btnEntendido = findViewById<Button>(R.id.btn_entendido)
         btnEntendido.setOnClickListener {
-            finish() // Cierra esta pantalla y regresa a Configuración
+            finish()
+        }
+
+        // 2. Lógica de la barra inferior (Bottom Navigation)
+
+        // Botón Inicio
+        findViewById<ImageButton>(R.id.navInicio).setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
+        }
+
+        // Botón Perfil
+        findViewById<ImageButton>(R.id.navPerfil).setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // Botón Configuración
+        findViewById<ImageButton>(R.id.navConfig).setOnClickListener {
+            // Como ya estás en la ruta de configuración, simplemente cerramos Privacidad
+            finish()
         }
     }
 }

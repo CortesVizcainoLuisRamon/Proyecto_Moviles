@@ -9,7 +9,7 @@
     <View
         android:id="@+id/header_bg"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="135dp"
         android:background="@color/red_1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,33 +21,17 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="18dp"
         android:src="@drawable/logo_ipn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/btnMasOpciones"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:src="@drawable/opciones"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="fitCenter"
-        android:padding="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="31dp"
-        android:tint="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:clickable="true"
-        android:focusable="true"/>
 
     <TextView
         android:id="@+id/tv_appname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="15dp"
         android:text="EntrenaIPN"
         android:textColor="@color/white"
         android:textSize="14sp"
@@ -61,12 +45,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="16dp"
-        android:text="Contacto y soporte"
+        android:text="Contacto y\nsoporte"
         android:textColor="@color/white"
-        android:textSize="31sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ic_logo_ipn_contacto"
-        app:layout_constraintEnd_toStartOf="@id/btnMasOpciones"
         app:layout_constraintTop_toBottomOf="@id/tv_appname"/>
 
     <!-- Contenedor del contenido -->
@@ -76,7 +59,7 @@
         android:layout_marginTop="0dp"
         app:cardBackgroundColor="@color/white"
         app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavBar"
         app:layout_constraintTop_toBottomOf="@id/header_bg">
 
         <ScrollView
@@ -87,8 +70,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp">
+                android:orientation="vertical">
 
                 <!-- SECCIÓN 1: Ubicación ESCOM -->
                 <TextView
@@ -97,7 +79,9 @@
                     android:text="DÓNDE ESTAMOS"
                     android:textColor="@color/red_4"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="24dp"/>
 
                 <LinearLayout
                     android:id="@+id/btn_abrir_maps"
@@ -108,9 +92,10 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    android:elevation="5dp"
+                    android:elevation="2dp"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:layout_marginHorizontal="24dp">
 
                     <ImageView
                         android:layout_width="32dp"
@@ -144,7 +129,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="24dp"
-                    android:background="@color/gray_light" />
+                    android:background="@color/gray_light"
+                    android:layout_marginHorizontal="24dp"/>
 
                 <!-- SECCIÓN 2: Equipo de Soporte -->
                 <TextView
@@ -153,7 +139,8 @@
                     android:text="EQUIPO DE SOPORTE"
                     android:textColor="@color/red_4"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="24dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -162,7 +149,8 @@
                     android:layout_marginBottom="12dp"
                     android:text="Toca cualquiera de nuestros perfiles para enviarnos un correo directamente:"
                     android:textColor="@color/gray_text"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:layout_marginHorizontal="24dp"/>
 
                 <!-- Perfil Ramón -->
                 <LinearLayout
@@ -174,7 +162,8 @@
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:layout_marginHorizontal="24dp">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -206,9 +195,9 @@
 
                     <ImageView
                         android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_height="21dp"
                         android:layout_alignParentEnd="true"
-                        android:src="@android:drawable/ic_media_next"
+                        android:src="@drawable/flecha_config"
                         app:tint="@color/gray_text" />
                 </LinearLayout>
 
@@ -223,7 +212,8 @@
                     android:focusable="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:padding="12dp"
+                    android:layout_marginHorizontal="24dp">
 
                     <ImageView
                         android:layout_width="40dp"
@@ -256,7 +246,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_alignParentEnd="true"
-                        android:src="@android:drawable/ic_media_next"
+                        android:src="@drawable/flecha_config"
                         app:tint="@color/gray_text" />
                 </LinearLayout>
 
@@ -265,15 +255,25 @@
                     android:id="@+id/btn_volver_contacto"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="30dp"
                     android:backgroundTint="@color/red_1"
                     android:text="REGRESAR A AJUSTES"
                     android:textStyle="bold"
                     app:elevation="0dp"
                     android:textColor="@color/white"
-                    app:cornerRadius="28dp"/>
+                    app:cornerRadius="16dp"
+                    android:layout_marginHorizontal="24dp"/>
 
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>
+    <include
+        android:id="@+id/bottomNavBar"
+        layout="@layout/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

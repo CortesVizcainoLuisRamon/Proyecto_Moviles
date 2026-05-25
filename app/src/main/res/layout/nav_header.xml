@@ -8,10 +8,10 @@
     <LinearLayout
         android:layout_width="311dp"
         android:layout_height="175dp"
-        android:background="@color/red_900"
+        android:background="@color/red_1"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:padding="25dp">
+        android:padding="20dp">
 
         <ImageView
             android:layout_width="60dp"
@@ -102,7 +102,7 @@
                     android:src="@drawable/opciones_entrenamientos"
                     android:rotation="0"
                     android:tint="@color/gray_text"
-                    android:layout_marginEnd="25dp"/>
+                    android:layout_marginEnd="30dp"/>
 
             </LinearLayout>
 
