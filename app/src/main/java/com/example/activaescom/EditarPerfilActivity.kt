@@ -15,11 +15,16 @@ import androidx.drawerlayout.widget.DrawerLayout
 import java.io.File
 import java.io.FileOutputStream
 import java.util.Calendar
+import androidx.lifecycle.lifecycleScope
+import com.example.activaescom.database.entities.UsuarioEntity
+import com.example.activaescom.viewmodel.UsuarioViewModel
+import kotlinx.coroutines.launch
 
-class EditarPerfilActivity : AppCompatActivity() {
+class EditarPerfilActivity : BaseActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var imgPerfil: ImageView
+    private lateinit var usuarioViewModel: UsuarioViewModel
 
     // Lanzador para galería
     private val seleccionarImagen = registerForActivityResult(
@@ -40,6 +45,9 @@ class EditarPerfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_perfil)
 
+        usuarioViewModel = UsuarioViewModel(application)
+        findViewById<android.widget.ImageButton>(R.id.navPerfil).isSelected = true
+
         drawerLayout = findViewById(R.id.drawerLayout)
         NavegacionHelper.configurarNavegacion(this, drawerLayout)
 
@@ -55,11 +63,35 @@ class EditarPerfilActivity : AppCompatActivity() {
             }
         }
 
-        // Pre-llenar campos con datos actuales
-        findViewById<EditText>(R.id.etUsuario).setText(UserPreferences.getUsuario(this))
-        findViewById<EditText>(R.id.etNombre).setText(UserPreferences.getNombre(this))
-        findViewById<EditText>(R.id.etApellido).setText(UserPreferences.getApellido(this))
-        findViewById<EditText>(R.id.etFechaNacimiento).setText(UserPreferences.getFecha(this))
+        lifecycleScope.launch {
+
+            val usuarioId =
+                UserPreferences.getUsuarioId(
+                    this@EditarPerfilActivity
+                )
+
+            val usuario =
+                usuarioViewModel
+                    .obtenerUsuarioPorId(
+                        usuarioId
+                    )
+
+            if (usuario != null) {
+
+                findViewById<EditText>(R.id.etUsuario)
+                    .setText(usuario.usuario)
+
+                findViewById<EditText>(R.id.etNombre)
+                    .setText(usuario.nombre)
+
+                findViewById<EditText>(R.id.etApellido)
+                    .setText(usuario.apellido)
+
+                findViewById<EditText>(R.id.etFechaNacimiento)
+                    .setText(usuario.fechaNacimiento)
+
+            }
+        }
 
         // Calendario para fecha de nacimiento
         val etFecha = findViewById<EditText>(R.id.etFechaNacimiento)
@@ -83,14 +115,80 @@ class EditarPerfilActivity : AppCompatActivity() {
 
         // Guardar cambios
         findViewById<Button>(R.id.btnGuardarCambios).setOnClickListener {
-            val usuario  = findViewById<EditText>(R.id.etUsuario).text.toString().trim()
-            val nombre   = findViewById<EditText>(R.id.etNombre).text.toString().trim()
-            val apellido = findViewById<EditText>(R.id.etApellido).text.toString().trim()
-            val fecha    = findViewById<EditText>(R.id.etFechaNacimiento).text.toString().trim()
 
-            UserPreferences.guardarDatosPerfil(this, usuario, nombre, apellido, fecha)
-            Toast.makeText(this, "Perfil actualizado", Toast.LENGTH_SHORT).show()
-            finish()
+            lifecycleScope.launch {
+
+                val usuarioId =
+                    UserPreferences.getUsuarioId(
+                        this@EditarPerfilActivity
+                    )
+
+                val usuarioActual =
+                    usuarioViewModel
+                        .obtenerUsuarioPorId(
+                            usuarioId
+                        )
+
+                if (usuarioActual != null) {
+
+                    val usuario =
+                        findViewById<EditText>(R.id.etUsuario)
+                            .text.toString().trim()
+
+                    val nombre =
+                        findViewById<EditText>(R.id.etNombre)
+                            .text.toString().trim()
+
+                    val apellido =
+                        findViewById<EditText>(R.id.etApellido)
+                            .text.toString().trim()
+
+                    val fecha =
+                        findViewById<EditText>(R.id.etFechaNacimiento)
+                            .text.toString().trim()
+
+                    val usuarioActualizado = UsuarioEntity(
+
+                        id = usuarioActual.id,
+
+                        usuario = usuario,
+
+                        nombre = nombre,
+
+                        boleta = usuarioActual.boleta,
+
+                        apellido = apellido,
+
+                        correo = usuarioActual.correo,
+
+                        fechaNacimiento = fecha,
+
+                        fotoPerfil = usuarioActual.fotoPerfil,
+
+                        password = usuarioActual.password
+                    )
+
+                    usuarioViewModel.actualizarUsuario(
+                        usuarioActualizado
+                    )
+
+                    UserPreferences.guardarDatosPerfil(
+                        this@EditarPerfilActivity,
+                        usuario,
+                        nombre,
+                        apellido,
+                        fecha
+                    )
+
+                    Toast.makeText(
+                        this@EditarPerfilActivity,
+                        "Perfil actualizado",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    finish()
+                }
+            }
         }
 
         // Botón "Cambiar" foto

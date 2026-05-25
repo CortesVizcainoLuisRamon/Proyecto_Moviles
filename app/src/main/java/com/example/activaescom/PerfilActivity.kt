@@ -11,14 +11,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import java.io.File
-
-class PerfilActivity : AppCompatActivity() {
+import androidx.lifecycle.lifecycleScope
+import com.example.activaescom.database.entities.UsuarioEntity
+import com.example.activaescom.viewmodel.UsuarioViewModel
+import kotlinx.coroutines.launch
+import android.widget.Toast
+class PerfilActivity : BaseActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var usuarioViewModel: UsuarioViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
+
+        usuarioViewModel = UsuarioViewModel(application)
+        findViewById<android.widget.ImageButton>(R.id.navPerfil).isSelected = true
 
         drawerLayout = findViewById(R.id.drawerLayout)
         NavegacionHelper.configurarNavegacion(this, drawerLayout)
@@ -31,7 +39,7 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         // Botón cambiar contraseña (vista pendiente)
-        findViewById<Button>(R.id.btnCambiarPassword).setOnClickListener {
+        findViewById<TextView>(R.id.btnCambiarPassword).setOnClickListener {
             // startActivity(Intent(this, CambiarPasswordActivity::class.java))
         }
     }
@@ -42,31 +50,110 @@ class PerfilActivity : AppCompatActivity() {
     }
 
     private fun cargarDatos() {
-        val nombre   = UserPreferences.getNombre(this)
-        val apellido = UserPreferences.getApellido(this)
 
-        findViewById<TextView>(R.id.tvNombreCompleto).text =
-            if (nombre.isNotEmpty() || apellido.isNotEmpty()) "$nombre $apellido".trim()
-            else ""
+        lifecycleScope.launch {
 
-        findViewById<TextView>(R.id.tvUsuario).text         = UserPreferences.getUsuario(this)
-        findViewById<TextView>(R.id.tvBoleta).text          = UserPreferences.getBoleta(this)
-        findViewById<TextView>(R.id.tvCorreo).text          = UserPreferences.getEmail(this)
-        findViewById<TextView>(R.id.tvNombre).text          = nombre
-        findViewById<TextView>(R.id.tvApellido).text        = apellido
-        findViewById<TextView>(R.id.tvFechaNacimiento).text = UserPreferences.getFecha(this)
+            val usuarioId =
+                UserPreferences.getUsuarioId(
+                    this@PerfilActivity
+                )
 
-        // ── Cargar foto de perfil ──────────────────────────────────────────
-        val ruta = UserPreferences.getFotoPerfil(this)
-        if (ruta.isNotEmpty()) {
-            val archivo = File(ruta)
-            if (archivo.exists()) {
-                val imgPerfil = findViewById<ImageView>(R.id.imgPerfil)
-                imgPerfil.setImageBitmap(BitmapFactory.decodeFile(ruta))
-                imgPerfil.clearColorFilter() // quita el tint blanco del XML
+            val usuario =
+                usuarioViewModel
+                    .obtenerUsuarioPorId(
+                        usuarioId
+                    )
+
+            if (usuario == null) {
+
+                findViewById<TextView>(R.id.tvUsuario).text =
+                    "ROOM NULL"
+
+                return@launch
+            }
+
+            // USUARIO
+
+            findViewById<TextView>(R.id.tvUsuario).text =
+                usuario.usuario
+
+            // CORREO
+
+            findViewById<TextView>(R.id.tvCorreo).text =
+                usuario.correo
+
+            findViewById<TextView>(R.id.tvBoleta).text =
+                usuario.boleta
+
+            // NOMBRE COMPLETO
+
+            findViewById<TextView>(R.id.tvNombreCompleto).text =
+
+                if (
+                    usuario.nombre.isNotEmpty() ||
+                    usuario.apellido.isNotEmpty()
+                ) {
+
+                    "${usuario.nombre} ${usuario.apellido}".trim()
+
+                } else {
+
+                    "Completa tu perfil"
+                }
+
+            // NOMBRE
+
+            findViewById<TextView>(R.id.tvNombre).text =
+
+                if (usuario.nombre.isNotEmpty())
+                    usuario.nombre
+                else
+                    "Sin registrar"
+
+            // APELLIDO
+
+            findViewById<TextView>(R.id.tvApellido).text =
+
+                if (usuario.apellido.isNotEmpty())
+                    usuario.apellido
+                else
+                    "Sin registrar"
+
+            // FECHA
+
+            findViewById<TextView>(R.id.tvFechaNacimiento).text =
+
+                if (usuario.fechaNacimiento.isNotEmpty())
+                    usuario.fechaNacimiento
+                else
+                    "Sin registrar"
+
+            // FOTO
+
+            val ruta =
+                UserPreferences.getFotoPerfil(
+                    this@PerfilActivity
+                )
+
+            if (ruta.isNotEmpty()) {
+
+                val archivo = File(ruta)
+
+                if (archivo.exists()) {
+
+                    val imgPerfil =
+                        findViewById<ImageView>(
+                            R.id.imgPerfil
+                        )
+
+                    imgPerfil.setImageBitmap(
+                        BitmapFactory.decodeFile(ruta)
+                    )
+
+                    imgPerfil.clearColorFilter()
+                }
             }
         }
-        // ──────────────────────────────────────────────────────────────────
     }
 
     override fun onBackPressed() {

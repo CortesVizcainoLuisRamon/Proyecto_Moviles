@@ -4,17 +4,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
+import com.example.activaescom.RegistroActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.activaescom.viewmodel.UsuarioViewModel
+import kotlinx.coroutines.launch
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private var emailGuardado    = ""
     private var passwordGuardada = ""
+    private lateinit var usuarioViewModel: UsuarioViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        usuarioViewModel = UsuarioViewModel(application)
         val etEmail    = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
 
@@ -49,20 +54,45 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (email != emailGuardado || password != passwordGuardada) {
-                etPassword.error = "Correo o contraseña incorrectos"
-                etPassword.requestFocus()
-                return@setOnClickListener
-            }
+            lifecycleScope.launch {
 
-            // ── Todo correcto: ir a MainActivity ──
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+                val usuario =
+                    usuarioViewModel.login(
+                        email,
+                        password
+                    )
+
+                if (usuario == null) {
+
+                    etPassword.error =
+                        "Correo o contraseña incorrectos"
+
+                    etPassword.requestFocus()
+
+                    return@launch
+                }
+
+
+                UserPreferences.guardarUsuarioId(
+                    this@LoginActivity,
+                    usuario.id
+                )
+
+                startActivity(
+                    Intent(
+                        this@LoginActivity,
+                        MainActivity::class.java
+                    )
+                )
+
+                finish()
+            }
         }
 
         // Tab Registrarse → va a RegistroActivity
         findViewById<Button>(R.id.btnTabRegister).setOnClickListener {
             startActivity(Intent(this, RegistroActivity::class.java))
         }
+
     }
 }

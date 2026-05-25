@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 
-class ProgresoActivity : AppCompatActivity() {
+class ProgresoActivity : BaseActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
 

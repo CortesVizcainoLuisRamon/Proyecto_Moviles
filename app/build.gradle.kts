@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -48,4 +49,11 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 // Location (FusedLocationProvider)
     implementation("com.google.android.gms:play-services-location:21.2.0")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.0")
+
+    implementation("androidx.room:room-runtime:2.7.0")
+    implementation("androidx.room:room-ktx:2.7.0")
+
+    kapt("androidx.room:room-compiler:2.7.0")
 }

@@ -3,7 +3,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Google Maps -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Google Maps -->
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
+        android:forceDarkAllowed="false"
         android:allowBackup="true"
         android:icon="@mipmap/entrena_ipn"
         android:label="@string/EntrenaIPN"
@@ -27,9 +29,9 @@
         <activity android:name=".MainActivity"        android:exported="false" />
         <activity android:name=".ProgresoActivity"    android:exported="false" />
         <activity android:name=".CarreraActivity"     android:exported="false" />
-        <activity android:name=".NuevoEntrenamientoActivity" android:windowSoftInputMode="adjustPan" android:exported="false" />
+        <activity android:name=".NuevoEntrenamientoActivity"  android:exported="false" />
         <activity android:name=".ConfigActivity"      android:exported="false" />
-        <activity android:name=".RegistroActivity" android:windowSoftInputMode="adjustResize" android:exported="false" />
+        <activity android:name=".RegistroActivity"  android:exported="false" />
         <activity android:name=".PerfilActivity"         android:exported="false" />
         <activity android:name=".EditarPerfilActivity"   android:exported="false" />
         <activity android:name=".PrivacidadActivity"    android:exported="false" />
@@ -40,7 +42,7 @@
         <activity android:name=".BicicletaActivity" android:exported="false" />
         <activity android:name=".FuerzaActivity" android:exported="false" />
         <activity android:name=".CaminataActivity" android:exported="false" />
-
+        <activity android:name=".HistorialActivity" android:exported="false" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
