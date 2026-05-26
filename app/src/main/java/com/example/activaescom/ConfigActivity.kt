@@ -126,9 +126,7 @@ class ConfigActivity : BaseActivity() {
                 container
             )
 
-            .setPositiveButton(
-                "Confirmar"
-            ) { _, _ ->
+            .setPositiveButton("Confirmar") { _, _ ->
 
                 val passwordIngresada =
                     inputPassword.text.toString().trim()
@@ -146,6 +144,10 @@ class ConfigActivity : BaseActivity() {
                         Toast.LENGTH_SHORT
 
                     ).show()
+
+                    UserPreferences.cerrarSesion(
+                        this
+                    )
 
                     val intent =
                         Intent(
@@ -394,14 +396,29 @@ class ConfigActivity : BaseActivity() {
             )
         }
 
-        findViewById<LinearLayout>(
-            R.id.btnPrivacidad
-        ).setOnClickListener {
-
+        findViewById<LinearLayout>(R.id.btnPrivacidad).setOnClickListener {
             startActivity(
                 Intent(
                     this,
                     PrivacidadActivity::class.java
+                )
+            )
+        }
+
+        findViewById<LinearLayout>(R.id.btnTerminos).setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    TerminosActivity::class.java
+                )
+            )
+        }
+
+        findViewById<LinearLayout>(R.id.btnContacto).setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    ContactoActivity::class.java
                 )
             )
         }
@@ -468,10 +485,24 @@ class ConfigActivity : BaseActivity() {
                 R.id.tvRateResult
             )
 
-        val btnEnviar =
-            findViewById<Button>(
-                R.id.btnEnviarValoracion
-            )
+        val btnEnviar = findViewById<Button>(R.id.btnEnviarValoracion)
+
+        val yaValoro =
+
+            UserPreferences
+                .getValoracionRealizada(this)
+
+        if (yaValoro) {
+
+            btnEnviar.isEnabled = false
+
+            btnEnviar.alpha = 0.5f
+
+            myRatingBar.setIsIndicator(true)
+
+            tvRateResult.text =
+                "Ya has valorado EntrenaIPN 😎🔥"
+        }
 
         btnEnviar.setOnClickListener {
 
@@ -504,6 +535,12 @@ class ConfigActivity : BaseActivity() {
                     Toast.LENGTH_SHORT
 
                 ).show()
+
+                UserPreferences
+                    .guardarValoracionRealizada(
+                        this,
+                        true
+                    )
 
                 btnEnviar.isEnabled =
                     false

@@ -192,4 +192,46 @@ object UserPreferences {
         ) ?: "7:00 PM"
     }
 
+    fun guardarValoracionRealizada(
+
+        context: Context,
+
+        realizada: Boolean
+
+    ) {
+
+        pref(context)
+            .edit()
+            .putBoolean(
+                "valoracion_realizada",
+                realizada
+            )
+            .apply()
+    }
+
+    fun getValoracionRealizada(
+        context: Context
+    ): Boolean {
+
+        return pref(context)
+            .getBoolean(
+                "valoracion_realizada",
+                false
+            )
+    }
+
+    fun cerrarSesion(
+        context: Context
+    ) {
+
+        pref(context)
+            .edit()
+
+            .remove(KEY_USUARIO)
+            .remove(KEY_EMAIL)
+            .remove(KEY_FOTO)
+
+            .apply()
+    }
+
 }
