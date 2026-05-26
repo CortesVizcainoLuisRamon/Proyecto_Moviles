@@ -125,11 +125,31 @@ object NavegacionHelper {
         }
 
         // ── CERRAR SESIÓN ───────────────────────────────────────────────────
-        headerView.findViewById<TextView>(R.id.menu_logout).setOnClickListener {
-            drawerLayout.closeDrawer(GravityCompat.START)
-            val intent = Intent(activity, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        headerView.findViewById<TextView>(
+            R.id.menu_logout
+        ).setOnClickListener {
+
+            drawerLayout.closeDrawer(
+                GravityCompat.START
+            )
+
+            UserPreferences.cerrarSesion(
+                activity
+            )
+
+            val intent =
+                Intent(
+                    activity,
+                    LoginActivity::class.java
+                )
+
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+
             activity.startActivity(intent)
+
+            activity.finish()
         }
     }
 }
