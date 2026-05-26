@@ -112,5 +112,84 @@ object UserPreferences {
             .getInt("usuario_id", -1)
     }
 
+    fun saveRecordatorioActivo(
+
+        context: Context,
+
+        activo: Boolean
+
+    ) {
+
+        val prefs =
+
+            context.getSharedPreferences(
+                PREFS_NAME,
+                Context.MODE_PRIVATE
+            )
+
+        prefs.edit()
+            .putBoolean(
+                "recordatorio_activo",
+                activo
+            )
+            .apply()
+    }
+
+    fun getRecordatorioActivo(
+        context: Context
+    ): Boolean {
+
+        val prefs =
+
+            context.getSharedPreferences(
+                PREFS_NAME,
+                Context.MODE_PRIVATE
+            )
+
+        return prefs.getBoolean(
+            "recordatorio_activo",
+            false
+        )
+    }
+
+    fun saveHoraRecordatorio(
+
+        context: Context,
+
+        hora: String
+
+    ) {
+
+        val prefs =
+
+            context.getSharedPreferences(
+                PREFS_NAME,
+                Context.MODE_PRIVATE
+            )
+
+        prefs.edit()
+            .putString(
+                "hora_recordatorio",
+                hora
+            )
+            .apply()
+    }
+
+    fun getHoraRecordatorio(
+        context: Context
+    ): String {
+
+        val prefs =
+
+            context.getSharedPreferences(
+                PREFS_NAME,
+                Context.MODE_PRIVATE
+            )
+
+        return prefs.getString(
+            "hora_recordatorio",
+            "7:00 PM"
+        ) ?: "7:00 PM"
+    }
 
 }

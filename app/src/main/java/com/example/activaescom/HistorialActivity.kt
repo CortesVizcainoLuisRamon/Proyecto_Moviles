@@ -81,43 +81,39 @@ class HistorialActivity : BaseActivity() {
 
                 val resumen =
 
-                    "${detalle?.distanciaKm ?: 0} km • ${
+                    "${
+                        String.format(
+                            "%.2f",
+                            detalle?.distanciaKm ?: 0.0
+                        )
+                    } km • ${
                         detalle?.caloriasQuemadas ?: 0
                     } kcal"
 
                 val detalles = """
 
-📍 Lugar:
-${entrenamiento.lugarEntrenamiento}
+📍 Lugar: ${entrenamiento.lugarEntrenamiento}
 
-💤 Sueño:
-${entrenamiento.horasSueno} hrs
+💤 Sueño: ${entrenamiento.horasSueno} hrs
 
-🎯 Objetivo:
-${config?.objetivo ?: "No registrado"}
+🎯 Objetivo: ${config?.objetivo ?: "No registrado"}
 
-❤️ Zona:
-${config?.zonaCardiaca ?: "No registrada"}
+❤️ Zona: ${config?.zonaCardiaca ?: "No registrada"}
 
-🛣 Superficie:
-${config?.superficie ?: "No registrada"}
+🛣 Superficie: ${config?.superficie ?: "No registrada"}
 
-🔥 Calentamiento:
-${
+🔥 Calentamiento: ${
                     if (config?.calentamientoActivo == true)
                         "Sí"
                     else
                         "No"
                 }
 
-⚡ Ritmo:
-${detalle?.ritmoPromedio ?: "0"}
+⚡ Ritmo: ${detalle?.ritmoPromedio ?: "0"}
 
-🚶 Pasos:
-${detalle?.pasos ?: 0}
+🚶 Pasos: ${detalle?.pasos ?: 0}
 
-📝 Notas:
-${
+📝 Notas: ${
                     if (
                         entrenamiento.notas.isNotBlank()
                     )
@@ -128,26 +124,31 @@ ${
 
 """.trimIndent()
 
-                listaUniversal.add(
+                if (detalle != null) {
+                    listaUniversal.add(
 
-                    HistorialUniversalItem(
+                        HistorialUniversalItem(
 
-                        tipoActividad =
-                            entrenamiento.tipoActividad,
+                            tipoActividad =
+                                entrenamiento.tipoActividad,
 
-                        nombreEntrenamiento =
-                            entrenamiento.nombreEntrenamiento,
+                            nombreEntrenamiento =
+                                entrenamiento.nombreEntrenamiento,
 
-                        fecha =
-                            entrenamiento.fechaEntrenamiento,
+                            fecha =
+                                entrenamiento.fechaEntrenamiento,
 
-                        resumen =
-                            resumen,
+                            resumen =
+                                resumen,
 
-                        detalles =
-                            detalles
+                            detalles =
+                                detalles,
+
+                            timestamp =
+                                entrenamiento.timestamp
+                        )
                     )
-                )
+                }
             } //aqui termina carrera
 
             yogas.forEach { yoga ->
@@ -169,34 +170,26 @@ ${
 
                 val detalles = """
 
-📍 Lugar:
-${entrenamiento.lugarEntrenamiento}
+📍 Lugar: ${entrenamiento.lugarEntrenamiento}
 
-💤 Sueño:
-${entrenamiento.horasSueno} hrs
+💤 Sueño: ${entrenamiento.horasSueno} hrs
 
-🧘🧘 Estilo:
-${config?.estilo ?: "No registrado"}
+🧘 Estilo: ${config?.estilo ?: "No registrado"}
 
-📈 Nivel:
-${config?.nivel ?: "No registrado"}
+📈 Nivel: ${config?.nivel ?: "No registrado"}
 
-🌬 Respiraciones:
-${detalle?.ciclosRespiracion ?: 0}
+🌬 Respiraciones: ${detalle?.ciclosRespiracion ?: 0}
 
-🛌 Savasana:
-${
+🛌 Savasana: ${
                     if (config?.savasanaActivo == true)
                         "Sí"
                     else
                         "No"
                 }
 
-⏳ Minutos Savasana:
-${config?.minutosSavasana ?: 0}
+⏳ Minutos Savasana: ${config?.minutosSavasana ?: 0}
 
-📝 Notas:
-${
+📝 Notas: ${
                     if (
                         entrenamiento.notas.isNotBlank()
                     )
@@ -207,26 +200,31 @@ ${
 
 """.trimIndent()
 
-                listaUniversal.add(
+                if (detalle != null) {
+                    listaUniversal.add(
 
-                    HistorialUniversalItem(
+                        HistorialUniversalItem(
 
-                        tipoActividad =
-                            entrenamiento.tipoActividad,
+                            tipoActividad =
+                                entrenamiento.tipoActividad,
 
-                        nombreEntrenamiento =
-                            entrenamiento.nombreEntrenamiento,
+                            nombreEntrenamiento =
+                                entrenamiento.nombreEntrenamiento,
 
-                        fecha =
-                            entrenamiento.fechaEntrenamiento,
+                            fecha =
+                                entrenamiento.fechaEntrenamiento,
 
-                        resumen =
-                            resumen,
+                            resumen =
+                                resumen,
 
-                        detalles =
-                            detalles
+                            detalles =
+                                detalles,
+
+                            timestamp =
+                                entrenamiento.timestamp
+                        )
                     )
-                )
+                }
             } //aqui termina yoga
 
             fuerzas.forEach { fuerza ->
@@ -248,40 +246,30 @@ ${
 
                 val detalles = """
 
-📍 Lugar:
-${entrenamiento.lugarEntrenamiento}
+📍 Lugar: ${entrenamiento.lugarEntrenamiento}
 
-💤 Sueño:
-${entrenamiento.horasSueno} hrs
+💤 Sueño: ${entrenamiento.horasSueno} hrs
 
-💪 Grupo muscular:
-${config?.grupoMuscular ?: "No registrado"}
+💪 Grupo muscular: ${config?.grupoMuscular ?: "No registrado"}
 
-🔥 Calentamiento:
-${
+🔥 Calentamiento: ${
                     if (config?.calentamientoActivo == true)
                         "Sí"
                     else
                         "No"
                 }
 
-⏳ Minutos calentamiento:
-${config?.minutosCalentamiento ?: 0}
+⏳ Minutos calentamiento: ${config?.minutosCalentamiento ?: 0}
 
-🏋 Series:
-${detalle?.seriesObjetivo ?: 0}
+🏋 Series: ${detalle?.seriesObjetivo ?: 0}
 
-🔁 Repeticiones:
-${detalle?.repeticionesObjetivo ?: 0}
+🔁 Repeticiones: ${detalle?.repeticionesObjetivo ?: 0}
 
-⚖ Peso:
-${detalle?.pesoObjetivo ?: 0} kg
+⚖ Peso: ${detalle?.pesoObjetivo ?: 0} kg
 
-📊 Volumen total:
-${detalle?.volumenTotal ?: 0}
+📊 Volumen total: ${detalle?.volumenTotal ?: 0}
 
-📝 Notas:
-${
+📝 Notas: ${
                     if (
                         entrenamiento.notas.isNotBlank()
                     )
@@ -292,26 +280,31 @@ ${
 
 """.trimIndent()
 
-                listaUniversal.add(
+                if (detalle != null) {
+                    listaUniversal.add(
 
-                    HistorialUniversalItem(
+                        HistorialUniversalItem(
 
-                        tipoActividad =
-                            entrenamiento.tipoActividad,
+                            tipoActividad =
+                                entrenamiento.tipoActividad,
 
-                        nombreEntrenamiento =
-                            entrenamiento.nombreEntrenamiento,
+                            nombreEntrenamiento =
+                                entrenamiento.nombreEntrenamiento,
 
-                        fecha =
-                            entrenamiento.fechaEntrenamiento,
+                            fecha =
+                                entrenamiento.fechaEntrenamiento,
 
-                        resumen =
-                            resumen,
+                            resumen =
+                                resumen,
 
-                        detalles =
-                            detalles
+                            detalles =
+                                detalles,
+
+                            timestamp =
+                                entrenamiento.timestamp
+                        )
                     )
-                )
+                }
             } // aqui termina fuerza
 
             nataciones.forEach { natacion ->
@@ -333,46 +326,34 @@ ${
 
                 val detalles = """
 
-📍 Lugar:
-${entrenamiento.lugarEntrenamiento}
+📍 Lugar: ${entrenamiento.lugarEntrenamiento}
 
-💤 Sueño:
-${entrenamiento.horasSueno} hrs
+💤 Sueño: ${entrenamiento.horasSueno} hrs
 
-🏊 Estilo:
-${config?.estilo ?: "No registrado"}
+🏊 Estilo: ${config?.estilo ?: "No registrado"}
 
-📈 Nivel:
-${config?.nivel ?: "No registrado"}
+📈 Nivel: ${config?.nivel ?: "No registrado"}
 
-🏟 Alberca:
-${config?.tamanoAlberca ?: 0} m
+🏟 Alberca: ${config?.tamanoAlberca ?: 0} m
 
-🔥 Calentamiento:
-${
+🔥 Calentamiento: ${
                     if (config?.calentamientoActivo == true)
                         "Sí"
                     else
                         "No"
                 }
 
-⏳ Minutos calentamiento:
-${config?.minutosCalentamiento ?: 0}
+⏳ Minutos calentamiento: ${config?.minutosCalentamiento ?: 0}
 
-🏊 Vueltas:
-${detalle?.vueltasTotales ?: 0}
+🏊 Vueltas: ${detalle?.vueltasTotales ?: 0}
 
-📏 Distancia:
-${detalle?.distanciaKm ?: 0} km
+📏 Distancia: ${detalle?.distanciaKm ?: 0} km
 
-🔥 Calorías:
-${detalle?.caloriasQuemadas ?: 0}
+🔥 Calorías: ${detalle?.caloriasQuemadas ?: 0}
 
-⏱ Duración:
-${detalle?.duracionSegundos?.div(60) ?: 0} min
+⏱ Duración: ${detalle?.duracionSegundos?.div(60) ?: 0} min
 
-📝 Notas:
-${
+📝 Notas: ${
                     if (
                         entrenamiento.notas.isNotBlank()
                     )
@@ -383,26 +364,31 @@ ${
 
 """.trimIndent()
 
-                listaUniversal.add(
+                if (detalle != null) {
+                    listaUniversal.add(
 
-                    HistorialUniversalItem(
+                        HistorialUniversalItem(
 
-                        tipoActividad =
-                            entrenamiento.tipoActividad,
+                            tipoActividad =
+                                entrenamiento.tipoActividad,
 
-                        nombreEntrenamiento =
-                            entrenamiento.nombreEntrenamiento,
+                            nombreEntrenamiento =
+                                entrenamiento.nombreEntrenamiento,
 
-                        fecha =
-                            entrenamiento.fechaEntrenamiento,
+                            fecha =
+                                entrenamiento.fechaEntrenamiento,
 
-                        resumen =
-                            resumen,
+                            resumen =
+                                resumen,
 
-                        detalles =
-                            detalles
+                            detalles =
+                                detalles,
+
+                            timestamp =
+                                entrenamiento.timestamp
+                        )
                     )
-                )
+                }
             } // aqui termina natacion
 
             bicicletas.forEach { bicicleta ->
@@ -418,63 +404,50 @@ ${
 
                 val resumen =
 
-                    "${detalle?.distanciaKm ?: 0} km • ${
+                    "${String.format(
+                        "%.2f",detalle?.distanciaKm ?: 0.0)} km • ${
                         detalle?.caloriasQuemadas ?: 0
                     } kcal"
 
                 val detalles = """
 
-📍 Lugar:
-${entrenamiento.lugarEntrenamiento}
+📍 Lugar: ${entrenamiento.lugarEntrenamiento}
 
-💤 Sueño:
-${entrenamiento.horasSueno} hrs
+💤 Sueño: ${entrenamiento.horasSueno} hrs
 
-🚴 Tipo bicicleta:
-${config?.tipoBicicleta ?: "No registrado"}
+🚴 Tipo bicicleta: ${config?.tipoBicicleta ?: "No registrado"}
 
-🛣 Terreno:
-${config?.terreno ?: "No registrado"}
+🛣 Terreno: ${config?.terreno ?: "No registrado"}
 
-🎯 Objetivo:
-${config?.objetivo ?: "No registrado"}
+🎯 Objetivo: ${config?.objetivo ?: "No registrado"}
 
-⚡ E-Bike:
-${
+⚡ E-Bike: ${
                     if (config?.esEBike == true)
                         "Sí"
                     else
                         "No"
                 }
 
-🔥 Calentamiento:
-${
+🔥 Calentamiento: ${
                     if (config?.calentamientoActivo == true)
                         "Sí"
                     else
                         "No"
                 }
 
-⏳ Minutos calentamiento:
-${config?.minutosCalentamiento ?: 0}
+⏳ Minutos calentamiento: ${config?.minutosCalentamiento ?: 0}
 
-📏 Distancia:
-${detalle?.distanciaKm ?: 0} km
+📏 Distancia: ${detalle?.distanciaKm ?: 0} km
 
-🚴 Velocidad promedio:
-${detalle?.velocidadPromedio ?: 0} km/h
+🚴 Velocidad promedio: ${detalle?.velocidadPromedio ?: 0} km/h
 
-🔥 Calorías:
-${detalle?.caloriasQuemadas ?: 0}
+🔥 Calorías: ${detalle?.caloriasQuemadas ?: 0}
 
-⏱ Duración:
-${detalle?.duracionSegundos?.div(60) ?: 0} min
+⏱ Duración: ${detalle?.duracionSegundos?.div(60) ?: 0} min
 
-🚨 Avisos:
-${config?.avisosRuta ?: "No registrados"}
+🚨 Avisos: ${config?.avisosRuta ?: "No registrados"}
 
-📝 Notas:
-${
+📝 Notas: ${
                     if (
                         entrenamiento.notas.isNotBlank()
                     )
@@ -485,26 +458,31 @@ ${
 
 """.trimIndent()
 
-                listaUniversal.add(
+                if (detalle != null) {
+                    listaUniversal.add(
 
-                    HistorialUniversalItem(
+                        HistorialUniversalItem(
 
-                        tipoActividad =
-                            entrenamiento.tipoActividad,
+                            tipoActividad =
+                                entrenamiento.tipoActividad,
 
-                        nombreEntrenamiento =
-                            entrenamiento.nombreEntrenamiento,
+                            nombreEntrenamiento =
+                                entrenamiento.nombreEntrenamiento,
 
-                        fecha =
-                            entrenamiento.fechaEntrenamiento,
+                            fecha =
+                                entrenamiento.fechaEntrenamiento,
 
-                        resumen =
-                            resumen,
+                            resumen =
+                                resumen,
 
-                        detalles =
-                            detalles
+                            detalles =
+                                detalles,
+
+                            timestamp =
+                                entrenamiento.timestamp
+                        )
                     )
-                )
+                }
             } // aqui termina bicicleta
 
             caminatas.forEach { caminata ->
@@ -520,52 +498,41 @@ ${
 
                 val resumen =
 
-                    "${detalle?.distanciaKm ?: 0} km • ${
+                    "${String.format(
+                        "%.2f",detalle?.distanciaKm ?: 0.0)} km • ${
                         detalle?.caloriasQuemadas ?: 0
                     } kcal"
 
                 val detalles = """
 
-📍 Lugar:
-${entrenamiento.lugarEntrenamiento}
+📍 Lugar: ${entrenamiento.lugarEntrenamiento}
 
-💤 Sueño:
-${entrenamiento.horasSueno} hrs
+💤 Sueño: ${entrenamiento.horasSueno} hrs
 
-🚶 Intensidad:
-${config?.intensidadPaso ?: "No registrada"}
+🚶 Intensidad: ${config?.intensidadPaso ?: "No registrada"}
 
-🛣 Terreno:
-${config?.terreno ?: "No registrado"}
+🛣 Terreno: ${config?.terreno ?: "No registrado"}
 
-🔥 Calentamiento:
-${
+🔥 Calentamiento: ${
                     if (config?.calentamientoActivo == true)
                         "Sí"
                     else
                         "No"
                 }
 
-⏳ Minutos calentamiento:
-${config?.minutosCalentamiento ?: 0}
+⏳ Minutos calentamiento: ${config?.minutosCalentamiento ?: 0}
 
-👥 Acompañante:
-${config?.acompanante ?: "Ninguno"}
+👥 Acompañante: ${config?.acompanante ?: "Ninguno"}
 
-📏 Distancia:
-${detalle?.distanciaKm ?: 0} km
+📏 Distancia: ${detalle?.distanciaKm ?: 0} km
 
-⚡ Ritmo:
-${detalle?.ritmo ?: "0"}
+⚡ Ritmo: ${detalle?.ritmo ?: "0"}
 
-🔥 Calorías:
-${detalle?.caloriasQuemadas ?: 0}
+🔥 Calorías: ${detalle?.caloriasQuemadas ?: 0}
 
-⏱ Duración:
-${detalle?.duracionSegundos?.div(60) ?: 0} min
+⏱ Duración: ${detalle?.duracionSegundos?.div(60) ?: 0} min
 
-📝 Notas:
-${
+📝 Notas: ${
                     if (
                         entrenamiento.notas.isNotBlank()
                     )
@@ -583,26 +550,31 @@ ${
                     }"
                 )
 
-                listaUniversal.add(
+                if (detalle != null) {
+                    listaUniversal.add(
 
-                    HistorialUniversalItem(
+                        HistorialUniversalItem(
 
-                        tipoActividad =
-                            entrenamiento.tipoActividad,
+                            tipoActividad =
+                                entrenamiento.tipoActividad,
 
-                        nombreEntrenamiento =
-                            entrenamiento.nombreEntrenamiento,
+                            nombreEntrenamiento =
+                                entrenamiento.nombreEntrenamiento,
 
-                        fecha =
-                            entrenamiento.fechaEntrenamiento,
+                            fecha =
+                                entrenamiento.fechaEntrenamiento,
 
-                        resumen =
-                            resumen,
+                            resumen =
+                                resumen,
 
-                        detalles =
-                            detalles
+                            detalles =
+                                detalles,
+
+                            timestamp =
+                                entrenamiento.timestamp
+                        )
                     )
-                )
+                }
             }
 
             val recycler =
@@ -617,8 +589,11 @@ ${
                     this@HistorialActivity
                 )
 
-            recycler.adapter =
+            listaUniversal.sortByDescending {
+                it.timestamp
+            }
 
+            recycler.adapter =
                 HistorialAdapter(
                     listaUniversal
                 )

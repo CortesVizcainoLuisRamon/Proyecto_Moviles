@@ -355,6 +355,13 @@ class NatacionActivity : BaseActivity(), OnMapReadyCallback {
                 else -> "Intermedio"
             }
 
+        val minutosCalentamientoFinal =
+
+            if (switchCalentamiento.isChecked)
+                minutosCalentamiento
+            else
+                0
+
         val configuracion =
 
             NatacionConfiguracionEntity(
@@ -375,7 +382,7 @@ class NatacionActivity : BaseActivity(), OnMapReadyCallback {
                     switchCalentamiento.isChecked,
 
                 minutosCalentamiento =
-                    minutosCalentamiento
+                    minutosCalentamientoFinal
             )
 
         lifecycleScope.launch {
@@ -448,14 +455,7 @@ class NatacionActivity : BaseActivity(), OnMapReadyCallback {
         handler.post(timerRunnable)
     }
 
-    private fun finishWorkout() {
-        val entrenamientoId =
-
-            intent.getIntExtra(
-                "ENTRENAMIENTO_ID",
-                -1
-            )
-
+    private fun finishWorkout() { val entrenamientoId = intent.getIntExtra("ENTRENAMIENTO_ID", -1)
         val calorias =
 
             tvCalorias
@@ -534,7 +534,7 @@ class NatacionActivity : BaseActivity(), OnMapReadyCallback {
         val vueltasActuales = (distanciaM / poolLength).toInt()
 
         tvVueltasContador.text = vueltasActuales.toString()
-        tvDistancia.text = String.format("%.2f", distanciaKm)
+        tvDistancia.text = "${distanciaM.toInt()} m"
 
         // Calorías quemadas estimadas (Aprox. 250 kcal por km en natación)
         val calorias = (distanciaKm * 250).toInt()

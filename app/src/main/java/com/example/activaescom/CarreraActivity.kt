@@ -730,7 +730,7 @@ class CarreraActivity : BaseActivity(), OnMapReadyCallback {
 
     private fun updateStatsUI() {
         val km = totalDistanceMeters / 1000.0
-        tvDistancia.text = String.format("%.2f", km)
+        tvDistancia.text = String.format("%.3f", km)
 
         if (workoutSeconds > 0 && totalDistanceMeters > 0) {
             val paceSecPerKm = workoutSeconds.toDouble() / km

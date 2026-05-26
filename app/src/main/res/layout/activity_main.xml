@@ -69,57 +69,88 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:orientation="vertical">
 
-                <!-- CÍRCULO DE PROGRESO 75% -->
-                <FrameLayout
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="30dp">
+                <LinearLayout
+                    android:id="@+id/chartContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    android:gravity="bottom"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginHorizontal="24dp">
 
-                    <ProgressBar
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:indeterminateOnly="false"
-                        android:progress="75"
-                        android:progressBackgroundTint="@color/red_300"
-                        android:progressDrawable="@android:drawable/progress_horizontal"
-                        android:progressTint="@color/red_800" />
+                    <View android:layout_width="0dp" android:layout_height="130dp" android:layout_weight="1" android:layout_margin="4dp" android:background="@color/red_900" />
+                    <View android:layout_width="0dp" android:layout_height="60dp"  android:layout_weight="1" android:layout_margin="4dp" android:background="@color/red_900" />
+                    <View android:layout_width="0dp" android:layout_height="80dp"  android:layout_weight="1" android:layout_margin="4dp" android:background="@color/red_900" />
+                    <View android:layout_width="0dp" android:layout_height="110dp" android:layout_weight="1" android:layout_margin="4dp" android:background="@color/red_900" />
+                    <View android:layout_width="0dp" android:layout_height="40dp"  android:layout_weight="1" android:layout_margin="4dp" android:background="@color/red_900" />
+                    <View android:layout_width="0dp" android:layout_height="90dp"  android:layout_weight="1" android:layout_margin="4dp" android:background="@color/red_900" />
+                    <View android:layout_width="0dp" android:layout_height="140dp" android:layout_weight="1" android:layout_margin="4dp" android:background="@color/red_900" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(Minutos)"
+                    android:textColor="@color/text_gray"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="24dp"/>
+
+                <!-- MEJOR MARCA -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardBestMark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="24dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="75%"
-                            android:textColor="@color/white"
-                            android:textSize="40sp"
-                            android:textStyle="bold" />
+                            android:text="Mejor Marca:"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/tvBestMark"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Meta Diaria: 45min"
-                            android:textColor="@color/white" />
+                            android:text="10k en 55min"
+                            android:textColor="@color/text_gray"
+                            android:layout_marginTop="4dp" />
                     </LinearLayout>
-                </FrameLayout>
+                </androidx.cardview.widget.CardView>
 
-                <!-- MINI STATS SEMANAL (NUEVO) -->
+                <!-- RESUMEN MENSUAL (NUEVO) -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RESUMEN MENSUAL"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"/>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+                    app:cardElevation="2dp"
+                    android:layout_marginHorizontal="24dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -131,135 +162,77 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <TextView
-                                android:id="@+id/tvDiasActivos"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="4/7"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/red_900"/>
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Días activos"
-                                android:textSize="11sp"
+                                android:text="Total del mes"
+                                android:textSize="12sp"
                                 android:textColor="@color/text_gray"/>
+
+                            <TextView
+                                android:id="@+id/tvTotalMes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="720 min"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="4dp"/>
                         </LinearLayout>
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="@color/gray_light"/>
+                            android:background="@color/gray_light"
+                            android:layout_marginHorizontal="16dp"/>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/tvMinutosSemana"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="180 min"
-                                android:textSize="20sp"
+                                android:text="Actividades"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_gray"/>
+
+                            <TextView
+                                android:id="@+id/tvActividadesMes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16 sesiones"
+                                android:textSize="18sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/red_900"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Esta semana"
-                                android:textSize="11sp"
-                                android:textColor="@color/text_gray"/>
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/gray_light"/>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
-
-                            <TextView
-                                android:id="@+id/tvRacha"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="🔥 5"
-                                android:textSize="20sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Racha"
-                                android:textSize="11sp"
-                                android:textColor="@color/text_gray"/>
+                                android:textColor="@color/black"
+                                android:layout_marginTop="4dp"/>
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- ÚLTIMA ACTIVIDAD (CARD ORIGINAL) -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardUltimaActividad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="20dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Última Actividad:"
-                            android:textColor="@color/black"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvUltimaActividad"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Carrera 30min >"
-                            android:textColor="@color/red_900"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- SUGERENCIA DEL DÍA (NUEVO) -->
+                <!-- POR TIPO DE ACTIVIDAD (NUEVO) -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SUGERENCIA DEL DÍA"
+                    android:text="POR TIPO DE ACTIVIDAD"
                     android:textColor="@color/red_4"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:letterSpacing="0.08"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"/>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
-                    app:cardBackgroundColor="@color/red_1">
+                    android:layout_marginHorizontal="24dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -267,26 +240,182 @@
                         android:orientation="vertical"
                         android:padding="16dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <!-- Carrera -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="💡 Tip: El ejercicio mejora tu concentración"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
 
-                        <TextView
-                            android:id="@+id/tvTipDelDia"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="🏃 Carrera"
+                                android:textSize="14sp"/>
+
+                            <ProgressBar
+                                android:id="@+id/progressCarrera"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="8dp"
+                                android:layout_weight="1"
+                                android:progress="60"
+                                android:progressTint="@color/red_900"
+                                android:progressBackgroundTint="@color/red_300"/>
+
+                            <TextView
+                                android:id="@+id/tvPorcentajeCarrera"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="60%"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"/>
+                        </LinearLayout>
+
+                        <!-- Caminata -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Hacer ejercicio 30 minutos antes de estudiar puede aumentar tu retención de información hasta en un 20%."
-                            android:textColor="@color/text_dark"
-                            android:textSize="12sp"
-                            android:layout_marginTop="8dp"/>
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="🚶 Caminata"
+                                android:textSize="14sp"/>
+
+                            <ProgressBar
+                                android:id="@+id/progressCaminata"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="8dp"
+                                android:layout_weight="1"
+                                android:progress="25"
+                                android:progressTint="@color/red_900"
+                                android:progressBackgroundTint="@color/red_300"/>
+
+                            <TextView
+                                android:id="@+id/tvPorcentajeCaminata"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="25%"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"/>
+                        </LinearLayout>
+
+                        <!-- Bicicleta -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="🚴 Bicicleta"
+                                android:textSize="14sp"/>
+
+                            <ProgressBar
+                                android:id="@+id/progressBicicleta"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="8dp"
+                                android:layout_weight="1"
+                                android:progress="15"
+                                android:progressTint="@color/red_900"
+                                android:progressBackgroundTint="@color/red_300"/>
+
+                            <TextView
+                                android:id="@+id/tvPorcentajeBicicleta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15%"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- LOGROS (NUEVO - OPCIONAL) -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LOGROS RECIENTES"
+                    android:textColor="@color/red_4"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginHorizontal="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🏆"
+                                android:textSize="24sp"
+                                android:layout_marginEnd="12dp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="7 días consecutivos"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⭐"
+                                android:textSize="24sp"
+                                android:layout_marginEnd="12dp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Meta semanal cumplida"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
         </ScrollView>
 
         <include

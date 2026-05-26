@@ -60,7 +60,7 @@
                     android:id="@+id/tvNombreEntreno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="3dp"
                     android:text="Morning Run"
                     android:textColor="@color/gray_text"
                     android:textSize="13sp"/>
