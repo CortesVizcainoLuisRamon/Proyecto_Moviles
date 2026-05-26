@@ -55,14 +55,6 @@ object NavegacionHelper {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        headerView.findViewById<TextView>(R.id.menu_progreso).setOnClickListener {
-            if (activity !is ProgresoActivity) {
-                activity.startActivity(Intent(activity, ProgresoActivity::class.java))
-                activity.finish()
-            }
-            drawerLayout.closeDrawer(GravityCompat.START)
-        }
-
         // ── NUEVO ENTRENAMIENTO CON DROPDOWN ────────────────────────────────
         val menuNuevoHeader = headerView.findViewById<LinearLayout>(R.id.menu_nuevo_header)
         val menuNuevoSubmenu = headerView.findViewById<LinearLayout>(R.id.menu_nuevo_submenu)

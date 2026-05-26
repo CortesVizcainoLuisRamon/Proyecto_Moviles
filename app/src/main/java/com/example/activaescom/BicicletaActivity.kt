@@ -358,6 +358,12 @@ class BicicletaActivity : BaseActivity(), OnMapReadyCallback {
                 ?.toString()
                 ?: "Paseo"
 
+        val minutosCalentamientoFinal =
+
+            if (switchCalentamiento.isChecked)
+                minutosCalentamiento
+            else
+                0
         val configuracion =
 
             BicicletaConfiguracionEntity(
@@ -378,7 +384,7 @@ class BicicletaActivity : BaseActivity(), OnMapReadyCallback {
                     switchCalentamiento.isChecked,
 
                 minutosCalentamiento =
-                    minutosCalentamiento,
+                    minutosCalentamientoFinal,
 
                 esEBike =
                     switchEBike.isChecked,
@@ -645,7 +651,7 @@ class BicicletaActivity : BaseActivity(), OnMapReadyCallback {
 
     private fun updateStatsUI() {
         val km = totalDistanceMeters / 1000.0
-        tvDistancia.text = String.format(Locale.getDefault(), "%.2f", km)
+        tvDistancia.text = String.format(Locale.getDefault(), "%.3f", km)
 
         if (workoutSeconds > 0 && totalDistanceMeters > 0) {
             val avgSpeedKmh = (totalDistanceMeters / workoutSeconds.toDouble()) * 3.6

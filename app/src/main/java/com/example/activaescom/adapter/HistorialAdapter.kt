@@ -6,23 +6,20 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.activaescom.R
 import com.example.activaescom.model.HistorialUniversalItem
 
 class HistorialAdapter(
 
     private val lista:
-    List<HistorialUniversalItem>
+    MutableList<HistorialUniversalItem>,
+
 
 ) : RecyclerView.Adapter<
         HistorialAdapter.ViewHolder>() {
 
-    inner class ViewHolder(
-        itemView: View
-    ) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val tvTipoActividad:
                 TextView =
@@ -151,25 +148,25 @@ class HistorialAdapter(
         // ICONOS
 
         val icono = when (
-            item.tipoActividad
+            item.tipoActividad.lowercase()
         ) {
 
-            "Carrera" ->
+            "carrera" ->
                 R.drawable.ic_carrera
 
-            "Caminata" ->
+            "caminata" ->
                 R.drawable.ic_caminata
 
-            "Bicicleta" ->
+            "bicicleta" ->
                 R.drawable.ic_bicicleta
 
-            "Fuerza" ->
+            "fuerza" ->
                 R.drawable.ic_fuerza
 
-            "Natacion" ->
+            "natación" ->
                 R.drawable.ic_natacion
 
-            "Yoga" ->
+            "yoga" ->
                 R.drawable.ic_yoga
 
             else ->

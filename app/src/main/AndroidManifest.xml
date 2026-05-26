@@ -4,7 +4,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Google Maps -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Google Maps -->
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
+
         android:forceDarkAllowed="false"
         android:allowBackup="true"
         android:icon="@mipmap/entrena_ipn"
@@ -27,7 +29,6 @@
         </activity>
 
         <activity android:name=".MainActivity"        android:exported="false" />
-        <activity android:name=".ProgresoActivity"    android:exported="false" />
         <activity android:name=".CarreraActivity"     android:exported="false" />
         <activity android:name=".NuevoEntrenamientoActivity"  android:exported="false" />
         <activity android:name=".ConfigActivity"      android:exported="false" />
@@ -52,6 +53,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <receiver android:name=".NotificationReceiver" android:exported="false"/>
     </application>
 
 </manifest>

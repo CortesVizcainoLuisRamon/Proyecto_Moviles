@@ -10,5 +10,7 @@ data class HistorialUniversalItem(
 
     val resumen: String,
 
-    val detalles: String
+    val detalles: String,
+
+    val timestamp: Long
 )

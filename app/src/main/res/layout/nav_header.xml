@@ -11,7 +11,7 @@
         android:background="@color/red_1"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="16dp">
 
         <ImageView
             android:layout_width="60dp"
@@ -51,18 +51,6 @@
             android:focusable="true"
             android:padding="16dp"
             android:text="🏠  Inicio"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/menu_progreso"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="16dp"
-            android:text="📈  Progreso semanal"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -232,5 +220,6 @@
             android:text="🚪  Cerrar sesión"
             android:textColor="@color/red_900"
             android:textSize="16sp" />
+
     </LinearLayout>
 </LinearLayout>

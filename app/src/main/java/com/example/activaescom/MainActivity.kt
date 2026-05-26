@@ -21,11 +21,6 @@ class MainActivity : BaseActivity() {
 
         drawerLayout = findViewById(R.id.drawerLayout)
         NavegacionHelper.configurarNavegacion(this, drawerLayout)
-
-        // "Última Actividad" → CarreraActivity
-        findViewById<CardView>(R.id.cardUltimaActividad).setOnClickListener {
-            startActivity(Intent(this, CarreraActivity::class.java))
-        }
     }
 
     override fun onBackPressed() {

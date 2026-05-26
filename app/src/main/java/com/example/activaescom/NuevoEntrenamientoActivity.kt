@@ -634,10 +634,14 @@ class NuevoEntrenamientoActivity : BaseActivity() {
                         )
 
                         putExtra(
-                            "META_DISTANCIA",
-                            "$metaKm km"
-                        )
 
+                            "META_DISTANCIA",
+
+                            if (actividadSeleccionada == "Natación")
+                                "${metaKm.toInt()} m"
+                            else
+                                "$metaKm km"
+                        )
                         putExtra(
                             "NOMBRE_RUTINA",
                             nombreEntrenamiento
@@ -669,6 +673,7 @@ class NuevoEntrenamientoActivity : BaseActivity() {
                         )
 
                         startActivity(this)
+                        finish()
                     }
                 }
             }
