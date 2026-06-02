@@ -21,6 +21,9 @@ import java.io.File
 import java.util.Calendar
 import androidx.work.*
 import java.util.concurrent.TimeUnit
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import com.example.activaescom.database.AppDatabase
 
 class ConfigActivity : BaseActivity() {
 
@@ -126,54 +129,85 @@ class ConfigActivity : BaseActivity() {
                 container
             )
 
-            .setPositiveButton("Confirmar") { _, _ ->
+            .setPositiveButton(
+                "Confirmar"
+            ) { _, _ ->
 
                 val passwordIngresada =
-                    inputPassword.text.toString().trim()
+                    inputPassword.text
+                        .toString()
+                        .trim()
 
-                if (
-                    passwordIngresada.isNotEmpty()
-                ) {
+                lifecycleScope.launch {
 
-                    Toast.makeText(
+                    val db =
+                        AppDatabase.getDatabase(this@ConfigActivity)
 
-                        this,
+                    val usuarioId =
+                        UserPreferences
+                            .getUsuarioId(this@ConfigActivity)
 
-                        "Cuenta eliminada con éxito",
+                    val usuario =
+                        db.usuarioDao()
+                            .obtenerUsuarioPorId(
+                                usuarioId
+                            )
 
-                        Toast.LENGTH_SHORT
+                    if (
 
-                    ).show()
+                        usuario != null &&
 
-                    UserPreferences.cerrarSesion(
-                        this
-                    )
+                        usuario.password ==
+                        passwordIngresada
 
-                    val intent =
-                        Intent(
-                            this,
-                            LoginActivity::class.java
+                    ) {
+
+                        db.usuarioDao()
+                            .eliminarUsuario(
+                                usuarioId
+                            )
+
+                        UserPreferences.cerrarSesion(
+                            this@ConfigActivity
                         )
 
-                    intent.flags =
-                        Intent.FLAG_ACTIVITY_NEW_TASK or
-                                Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        Toast.makeText(
 
-                    startActivity(intent)
+                            this@ConfigActivity,
 
-                    finish()
+                            "Cuenta eliminada correctamente",
 
-                } else {
+                            Toast.LENGTH_LONG
 
-                    Toast.makeText(
+                        ).show()
 
-                        this,
 
-                        "Contraseña incorrecta",
+                        val intent =
+                            Intent(
+                                this@ConfigActivity,
+                                LoginActivity::class.java
+                            )
 
-                        Toast.LENGTH_LONG
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK
 
-                    ).show()
+                        startActivity(intent)
+
+                        finish()
+
+                    } else {
+
+                        Toast.makeText(
+
+                            this@ConfigActivity,
+
+                            "Contraseña incorrecta",
+
+                            Toast.LENGTH_LONG
+
+                        ).show()
+                    }
                 }
             }
 
@@ -440,6 +474,8 @@ class ConfigActivity : BaseActivity() {
                 .setPositiveButton(
                     "Sí"
                 ) { _, _ ->
+
+                    UserPreferences.cerrarSesion(this)
 
                     val intent =
                         Intent(

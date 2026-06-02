@@ -8,8 +8,9 @@ import com.example.activaescom.RegistroActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.activaescom.viewmodel.UsuarioViewModel
 import kotlinx.coroutines.launch
+import androidx.appcompat.app.AppCompatActivity
 
-class LoginActivity : BaseActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private var emailGuardado    = ""
     private var passwordGuardada = ""
@@ -17,6 +18,20 @@ class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val usuarioId =
+            UserPreferences.getUsuarioId(this)
+
+        if (usuarioId > 0) {
+
+            startActivity(
+                Intent(
+                    this,
+                    MainActivity::class.java
+                )
+            )
+
+            finish()
+        }
         setContentView(R.layout.activity_login)
 
         usuarioViewModel = UsuarioViewModel(application)
@@ -76,6 +91,28 @@ class LoginActivity : BaseActivity() {
                 UserPreferences.guardarUsuarioId(
                     this@LoginActivity,
                     usuario.id
+                )
+
+                UserPreferences.guardarDatosRegistro(
+                    context = this@LoginActivity,
+
+                    usuario = usuario.usuario,
+
+                    boleta = usuario.boleta,
+
+                    email = usuario.correo
+                )
+
+                UserPreferences.guardarDatosPerfil(
+                    context = this@LoginActivity,
+
+                    usuario = usuario.usuario,
+
+                    nombre = usuario.nombre,
+
+                    apellido = usuario.apellido,
+
+                    fecha = usuario.fechaNacimiento
                 )
 
                 startActivity(

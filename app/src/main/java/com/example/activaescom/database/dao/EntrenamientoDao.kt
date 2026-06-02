@@ -34,4 +34,18 @@ interface EntrenamientoDao {
     suspend fun obtenerCarrerasCompletas(
         usuarioId: Int
     ): List<CarreraCompleta>
+
+    @Query("""
+UPDATE entrenamientos
+SET duracionRealSegundos = :duracion,
+    caloriasQuemadas = :calorias
+WHERE id = :entrenamientoId
+""")
+    suspend fun actualizarResultados(
+        entrenamientoId: Int,
+        duracion: Long,
+        calorias: Int
+    )
+
+
 }

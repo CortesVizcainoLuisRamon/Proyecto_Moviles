@@ -191,14 +191,14 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/menu_config"
+            android:id="@+id/menu_historial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:padding="16dp"
-            android:text="⚙️  Configuración"
+            android:text="📊  Historial de entrenamientos"
             android:textColor="@color/black"
             android:textSize="16sp" />
 

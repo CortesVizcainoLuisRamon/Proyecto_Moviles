@@ -38,6 +38,8 @@ import kotlinx.coroutines.launch
 import com.example.activaescom.database.entities.NatacionConfiguracionEntity
 import com.example.activaescom.database.entities.NatacionDetalleEntity
 import com.example.activaescom.viewmodel.NatacionViewModel
+import com.example.activaescom.database.AppDatabase
+import android.widget.Toast
 
 class NatacionActivity : BaseActivity(), OnMapReadyCallback {
 
@@ -129,6 +131,34 @@ class NatacionActivity : BaseActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val entrenamientoId =
+
+            intent.getIntExtra(
+                "ENTRENAMIENTO_ID",
+                -1
+            )
+
+        if (entrenamientoId == -1) {
+
+            Toast.makeText(
+                this,
+                "Primero inicia un nuevo entrenamiento",
+                Toast.LENGTH_LONG
+            ).show()
+
+            startActivity(
+                Intent(
+                    this,
+                    NuevoEntrenamientoActivity::class.java
+                )
+            )
+
+            finish()
+
+            return
+        }
+
         WindowCompat.setDecorFitsSystemWindows(window, true)
         setContentView(R.layout.activity_natacion)
 
@@ -506,6 +536,15 @@ class NatacionActivity : BaseActivity(), OnMapReadyCallback {
                 .insertarDetalle(
                     detalle
                 )
+            AppDatabase
+                .getDatabase(this@NatacionActivity)
+                .entrenamientoDao()
+                .actualizarResultados(
+                    entrenamientoId,
+                    workoutSeconds,
+                    calorias
+                )
+
         }
         isRunning = false
         handler.removeCallbacks(timerRunnable)
