@@ -40,8 +40,9 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import com.example.activaescom.database.entities.BicicletaConfiguracionEntity
 import com.example.activaescom.database.entities.BicicletaDetalleEntity
-
+import com.example.activaescom.database.AppDatabase
 import com.example.activaescom.viewmodel.BicicletaViewModel
+import android.widget.Toast
 
 class BicicletaActivity : BaseActivity(), OnMapReadyCallback {
 
@@ -130,6 +131,34 @@ class BicicletaActivity : BaseActivity(), OnMapReadyCallback {
     // ─────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val entrenamientoId =
+
+            intent.getIntExtra(
+                "ENTRENAMIENTO_ID",
+                -1
+            )
+
+        if (entrenamientoId == -1) {
+
+            Toast.makeText(
+                this,
+                "Primero inicia un nuevo entrenamiento",
+                Toast.LENGTH_LONG
+            ).show()
+
+            startActivity(
+                Intent(
+                    this,
+                    NuevoEntrenamientoActivity::class.java
+                )
+            )
+
+            finish()
+
+            return
+        }
+
         setContentView(R.layout.activity_bicicleta)
 
         bicicletaViewModel =
@@ -534,11 +563,16 @@ class BicicletaActivity : BaseActivity(), OnMapReadyCallback {
                     workoutSeconds
             )
 
+        lifecycleScope.launch { bicicletaViewModel.insertarDetalle(detalle) }
         lifecycleScope.launch {
 
-            bicicletaViewModel
-                .insertarDetalle(
-                    detalle
+            AppDatabase
+                .getDatabase(this@BicicletaActivity)
+                .entrenamientoDao()
+                .actualizarResultados(
+                    entrenamientoId,
+                    workoutSeconds,
+                    calorias
                 )
         }
         handler.removeCallbacks(timerRunnable)

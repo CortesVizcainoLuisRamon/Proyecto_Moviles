@@ -38,6 +38,8 @@ import kotlinx.coroutines.launch
 import com.example.activaescom.database.entities.YogaConfiguracionEntity
 import com.example.activaescom.database.entities.YogaDetalleEntity
 import com.example.activaescom.viewmodel.YogaViewModel
+import com.example.activaescom.database.AppDatabase
+import android.widget.Toast
 
 class YogaActivity : BaseActivity(), OnMapReadyCallback {
 
@@ -140,6 +142,34 @@ class YogaActivity : BaseActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val entrenamientoId =
+
+            intent.getIntExtra(
+                "ENTRENAMIENTO_ID",
+                -1
+            )
+
+        if (entrenamientoId == -1) {
+
+            Toast.makeText(
+                this,
+                "Primero inicia un nuevo entrenamiento",
+                Toast.LENGTH_LONG
+            ).show()
+
+            startActivity(
+                Intent(
+                    this,
+                    NuevoEntrenamientoActivity::class.java
+                )
+            )
+
+            finish()
+
+            return
+        }
+
         WindowCompat.setDecorFitsSystemWindows(window, true)
         setContentView(R.layout.activity_yoga)
 
@@ -414,6 +444,19 @@ class YogaActivity : BaseActivity(), OnMapReadyCallback {
                     detalle
                 )
         }
+
+        lifecycleScope.launch {
+
+            AppDatabase
+                .getDatabase(this@YogaActivity)
+                .entrenamientoDao()
+                .actualizarResultados(
+                    entrenamientoId,
+                    elapsedSeconds,
+                    calorias
+                )
+        }
+
         if (switchSavasana.isChecked && !isInSavasana) {
             iniciarSavasana()
         } else {

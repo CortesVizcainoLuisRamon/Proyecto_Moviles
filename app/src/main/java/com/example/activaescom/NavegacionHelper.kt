@@ -115,10 +115,10 @@ object NavegacionHelper {
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        // ── CONFIGURACIÓN ───────────────────────────────────────────────────
-        headerView.findViewById<TextView>(R.id.menu_config).setOnClickListener {
+        // ── HISTORIAL ───────────────────────────────────────────────────
+        headerView.findViewById<TextView>(R.id.menu_historial).setOnClickListener {
             if (activity !is ConfigActivity) {
-                activity.startActivity(Intent(activity, ConfigActivity::class.java))
+                activity.startActivity(Intent(activity, HistorialActivity::class.java))
                 activity.finish()
             }
             drawerLayout.closeDrawer(GravityCompat.START)

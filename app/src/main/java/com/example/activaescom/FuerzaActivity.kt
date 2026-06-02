@@ -37,6 +37,8 @@ import kotlinx.coroutines.launch
 import com.example.activaescom.database.entities.FuerzaConfiguracionEntity
 import com.example.activaescom.database.entities.FuerzaDetalleEntity
 import com.example.activaescom.viewmodel.FuerzaViewModel
+import com.example.activaescom.database.AppDatabase
+import kotlinx.coroutines.launch
 
 class FuerzaActivity : BaseActivity(), OnMapReadyCallback {
 
@@ -128,6 +130,34 @@ class FuerzaActivity : BaseActivity(), OnMapReadyCallback {
     // ─────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val entrenamientoId =
+
+            intent.getIntExtra(
+                "ENTRENAMIENTO_ID",
+                -1
+            )
+
+        if (entrenamientoId == -1) {
+
+            Toast.makeText(
+                this,
+                "Primero inicia un nuevo entrenamiento",
+                Toast.LENGTH_LONG
+            ).show()
+
+            startActivity(
+                Intent(
+                    this,
+                    NuevoEntrenamientoActivity::class.java
+                )
+            )
+
+            finish()
+
+            return
+        }
+
         setContentView(R.layout.activity_fuerza)
 
         fuerzaViewModel =
@@ -492,6 +522,21 @@ class FuerzaActivity : BaseActivity(), OnMapReadyCallback {
             fuerzaViewModel
                 .insertarDetalle(
                     detalle
+                )
+        }
+        val calorias = (
+                volumenTotal / 10
+                ).toInt()
+
+        lifecycleScope.launch {
+
+            AppDatabase
+                .getDatabase(this@FuerzaActivity)
+                .entrenamientoDao()
+                .actualizarResultados(
+                    entrenamientoId,
+                    workoutSeconds,
+                    calorias
                 )
         }
         isRunning = false

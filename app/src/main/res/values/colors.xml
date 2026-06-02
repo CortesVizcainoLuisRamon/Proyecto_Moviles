@@ -21,4 +21,6 @@
     <color name="text_dark">#212121</color>
     <color name="text_gray">#9E9E9E</color>
     <color name="gray_text">#9E9E9E</color>
+
+    <color name="red_50">#FDF0EF</color>
 </resources>

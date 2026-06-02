@@ -49,4 +49,11 @@ interface UsuarioDao {
         id: Int
     ): UsuarioEntity?
 
+    @Query("""
+    DELETE FROM usuarios
+    WHERE id = :usuarioId
+""")
+    suspend fun eliminarUsuario(
+        usuarioId: Int
+    )
 }

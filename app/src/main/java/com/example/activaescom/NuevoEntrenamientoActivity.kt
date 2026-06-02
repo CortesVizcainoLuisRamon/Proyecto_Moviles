@@ -489,6 +489,18 @@ class NuevoEntrenamientoActivity : BaseActivity() {
                         .toString()
                         .trim()
 
+                if (
+                    nombreEntrenamiento.isBlank()
+                ) {
+
+                    etNombreRutina.error =
+                        "Ingresa un nombre"
+
+                    etNombreRutina.requestFocus()
+
+                    return@setOnClickListener
+                }
+
                 val notas =
                     etNotas
                         .text

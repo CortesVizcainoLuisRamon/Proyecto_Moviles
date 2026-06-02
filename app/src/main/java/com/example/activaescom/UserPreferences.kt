@@ -14,6 +14,8 @@ object UserPreferences {
     private const val KEY_FECHA     = "fecha_nacimiento"
     private const val KEY_FOTO      = "foto_perfil"   // ← nuevo
 
+    private const val KEY_USUARIO_ID = "usuario_id"
+
     // ── GUARDAR ─────────────────────────────────────────────────────────────
 
     fun guardarDatosRegistro(
@@ -229,7 +231,7 @@ object UserPreferences {
 
             .remove(KEY_USUARIO)
             .remove(KEY_EMAIL)
-            .remove(KEY_FOTO)
+            .remove(KEY_USUARIO_ID)
 
             .apply()
     }

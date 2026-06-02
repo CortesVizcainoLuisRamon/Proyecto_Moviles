@@ -39,6 +39,10 @@ import com.example.activaescom.database.entities.CarreraDetalleEntity
 import com.example.activaescom.viewmodel.CarreraDetalleViewModel
 import com.example.activaescom.database.entities.CarreraConfiguracionEntity
 import com.example.activaescom.viewmodel.CarreraConfiguracionViewModel
+import com.example.activaescom.database.AppDatabase
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import android.widget.Toast
 
 class CarreraActivity : BaseActivity(), OnMapReadyCallback {
 
@@ -153,6 +157,34 @@ class CarreraActivity : BaseActivity(), OnMapReadyCallback {
     // ─────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val entrenamientoId =
+
+            intent.getIntExtra(
+                "ENTRENAMIENTO_ID",
+                -1
+            )
+
+        if (entrenamientoId == -1) {
+
+            Toast.makeText(
+                this,
+                "Primero inicia un nuevo entrenamiento",
+                Toast.LENGTH_LONG
+            ).show()
+
+            startActivity(
+                Intent(
+                    this,
+                    NuevoEntrenamientoActivity::class.java
+                )
+            )
+
+            finish()
+
+            return
+        }
+
         setContentView(R.layout.activity_carrera)
 
         val metaKm =
@@ -541,16 +573,31 @@ class CarreraActivity : BaseActivity(), OnMapReadyCallback {
 
         stopLocationUpdates()
 
-        // =====================================
-        // GUARDAR MÉTRICAS DE CARRERA
-        // =====================================
+        // GUARDAR MÉTRICAS
 
         val entrenamientoId =
-
             intent.getIntExtra(
                 "ENTRENAMIENTO_ID",
                 -1
             )
+
+        val calorias =
+            tvCalorias.text
+                .toString()
+                .replace(Regex("[^0-9]"), "")
+                .toIntOrNull() ?: 0
+
+        lifecycleScope.launch {
+
+            AppDatabase
+                .getDatabase(this@CarreraActivity)
+                .entrenamientoDao()
+                .actualizarResultados(
+                    entrenamientoId,
+                    workoutSeconds,
+                    calorias
+                )
+        }
 
         val km =
             totalDistanceMeters / 1000.0

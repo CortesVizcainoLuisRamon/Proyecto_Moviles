@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
 
-    <style name="Base.Theme.ActivaESCOM" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:statusBarColor">#C62828</item>
+    <style
+        name="Base.Theme.ActivaESCOM"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
 
-        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:statusBarColor">
+            #C62828
+        </item>
 
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">
+            false
+        </item>
+
     </style>
 
-    <style name="MiSwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
-        <item name="colorControlHighlight">@color/red_300</item>
+    <style
+        name="MiSwitchStyle"
+        parent="Widget.AppCompat.CompoundButton.Switch">
+
+        <item name="colorControlHighlight">
+            @color/red_300
+        </item>
+
     </style>
+
+    <style
+        name="Theme.ActivaESCOM"
+        parent="Base.Theme.ActivaESCOM" />
 
 </resources>

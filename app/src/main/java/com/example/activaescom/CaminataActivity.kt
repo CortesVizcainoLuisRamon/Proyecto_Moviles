@@ -39,6 +39,8 @@ import kotlinx.coroutines.launch
 import com.example.activaescom.database.entities.CaminataConfiguracionEntity
 import com.example.activaescom.database.entities.CaminataDetalleEntity
 import com.example.activaescom.viewmodel.CaminataViewModel
+import com.example.activaescom.database.AppDatabase
+import android.widget.Toast
 
 class CaminataActivity : BaseActivity(), OnMapReadyCallback {
 
@@ -120,6 +122,34 @@ class CaminataActivity : BaseActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val entrenamientoId =
+
+            intent.getIntExtra(
+                "ENTRENAMIENTO_ID",
+                -1
+            )
+
+        if (entrenamientoId == -1) {
+
+            Toast.makeText(
+                this,
+                "Primero inicia un nuevo entrenamiento",
+                Toast.LENGTH_LONG
+            ).show()
+
+            startActivity(
+                Intent(
+                    this,
+                    NuevoEntrenamientoActivity::class.java
+                )
+            )
+
+            finish()
+
+            return
+        }
+
         setContentView(R.layout.activity_caminata)
 
         caminataViewModel =
@@ -442,6 +472,8 @@ class CaminataActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     private fun finishWorkout() {
+
+
         val entrenamientoId =
 
             intent.getIntExtra(
@@ -493,7 +525,18 @@ class CaminataActivity : BaseActivity(), OnMapReadyCallback {
                 .insertarDetalle(
                     detalle
                 )
+
+            AppDatabase
+                .getDatabase(this@CaminataActivity)
+                .entrenamientoDao()
+                .actualizarResultados(
+                    entrenamientoId,
+                    workoutSeconds,
+                    calorias
+                )
         }
+
+
         isRunning = false
         handler.removeCallbacks(timerRunnable)
         stopLocationUpdates()
