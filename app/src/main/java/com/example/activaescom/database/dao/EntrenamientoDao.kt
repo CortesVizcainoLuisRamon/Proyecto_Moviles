@@ -26,26 +26,26 @@ interface EntrenamientoDao {
 
     @Transaction
     @Query("""
-    SELECT * FROM entrenamientos
-    WHERE tipoActividad = 'Carrera'
-    AND usuarioId = :usuarioId
-    ORDER BY timestamp DESC
-""")
+        SELECT * FROM entrenamientos
+        WHERE tipoActividad = 'Carrera'
+        AND usuarioId = :usuarioId
+        ORDER BY timestamp DESC
+    """)
     suspend fun obtenerCarrerasCompletas(
         usuarioId: Int
     ): List<CarreraCompleta>
 
     @Query("""
-UPDATE entrenamientos
-SET duracionRealSegundos = :duracion,
-    caloriasQuemadas = :calorias
-WHERE id = :entrenamientoId
-""")
+        UPDATE entrenamientos
+        SET duracionRealSegundos = :duracion,
+            caloriasQuemadas = :calorias,
+            rutaMapa = :rutaMapa
+        WHERE id = :entrenamientoId
+    """)
     suspend fun actualizarResultados(
         entrenamientoId: Int,
         duracion: Long,
-        calorias: Int
+        calorias: Int,
+        rutaMapa: String?
     )
-
-
 }

@@ -453,7 +453,7 @@ class YogaActivity : BaseActivity(), OnMapReadyCallback {
                 .actualizarResultados(
                     entrenamientoId,
                     elapsedSeconds,
-                    calorias
+                    calorias, null
                 )
         }
 

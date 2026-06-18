@@ -12,5 +12,7 @@ data class HistorialUniversalItem(
 
     val detalles: String,
 
-    val timestamp: Long
+    val timestamp: Long,
+
+    val rutaMapa: String? = null
 )

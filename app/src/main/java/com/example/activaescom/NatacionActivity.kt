@@ -542,7 +542,7 @@ class NatacionActivity : BaseActivity(), OnMapReadyCallback {
                 .actualizarResultados(
                     entrenamientoId,
                     workoutSeconds,
-                    calorias
+                    calorias, null
                 )
 
         }

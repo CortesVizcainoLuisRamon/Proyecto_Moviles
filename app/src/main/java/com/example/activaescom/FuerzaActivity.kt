@@ -536,7 +536,7 @@ class FuerzaActivity : BaseActivity(), OnMapReadyCallback {
                 .actualizarResultados(
                     entrenamientoId,
                     workoutSeconds,
-                    calorias
+                    calorias, null
                 )
         }
         isRunning = false
