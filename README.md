@@ -24,7 +24,7 @@
 - [Licencia](#licencia)
 
 ## Descripción
-**EntrenaIPN** (nombre interno del proyecto: `ActivaESCOM`) es una aplicación Android nativa escrita en Kotlin que permite registrar, monitorear y llevar un historial de sesiones de entrenamiento físico. Incluye registro con boleta institucional, pensada para la comunidad de ESCOM-IPN.
+**EntrenaIPN** es una aplicación Android nativa escrita en Kotlin que permite registrar, monitorear y llevar un historial de sesiones de entrenamiento físico. Incluye registro con boleta institucional, pensada para la comunidad de ESCOM-IPN.
 
 La app soporta seis tipos de actividad —carrera, caminata, ciclismo, natación, yoga y fuerza—, cada una con su propia pantalla de seguimiento, cronómetro y almacenamiento de detalles. Las actividades al aire libre (carrera, caminata, ciclismo) incorporan seguimiento por GPS con Google Maps, dibujando la ruta recorrida en tiempo real.
 
